@@ -28,7 +28,7 @@ if not api_key:
 telegram_bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
 telegram_chat_id = os.environ.get("TELEGRAM_CHAT_ID")
 
-def send_telegram_message(message):
+def send_telegram_message(message, buttons=None):
     """Send a push notification to the user's phone via Telegram"""
     if not telegram_bot_token or not telegram_chat_id:
         print("Telegram not configured. Skipping push notification.")
@@ -41,6 +41,11 @@ def send_telegram_message(message):
         "parse_mode": "HTML"
     }
     
+    if buttons:
+        payload["reply_markup"] = {
+            "inline_keyboard": [buttons]
+        }
+    
     req_data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=req_data, headers={"Content-Type": "application/json"}, method="POST")
     try:
@@ -48,6 +53,21 @@ def send_telegram_message(message):
             pass # Message sent successfully
     except Exception as e:
         print(f"Failed to send Telegram message: {e}")
+
+def check_telegram_commands():
+    """Check inbox for commands sent to the bot"""
+    if not telegram_bot_token:
+        return
+    url = f"https://api.telegram.org/bot{telegram_bot_token}/getUpdates"
+    try:
+        with urllib.request.urlopen(url) as resp:
+            data = json.loads(resp.read().decode())
+            for result in data.get("result", []):
+                msg = result.get("message", {}).get("text", "")
+                if msg == "/status":
+                    send_telegram_message("🟢 <b>Bot Status:</b> Online and scanning for bounties!")
+    except Exception:
+        pass
 
 def clean_html(raw_html):
     if not raw_html:
@@ -158,7 +178,9 @@ Description:
                             
                             # Notify the user on their phone
                             msg = f"🚀 <b>AUTO-SUBMITTED BOUNTY</b>\n\n<b>Title:</b> {title}\n<b>Reward:</b> {reward}\n<b>Fit Score:</b> {score}/10\n\nThe AI wrote and submitted the proposal autonomously!"
-                            send_telegram_message(msg)
+                            
+                            buttons = [{"text": "🔗 View Bounty", "url": f"https://superteam.fun/bounties/{slug}"}]
+                            send_telegram_message(msg, buttons)
                         else:
                             print("Score was high enough, but could not extract <PROPOSAL> or submit_listing function is missing.")
                     else:
@@ -174,6 +196,7 @@ if __name__ == "__main__":
         # Check if Ollama is running
         try:
             urllib.request.urlopen("http://localhost:11434")
+            check_telegram_commands()
             process_bounties()
         except Exception:
             print("Ollama does not appear to be running on localhost:11434. Please start it with 'ollama serve'")

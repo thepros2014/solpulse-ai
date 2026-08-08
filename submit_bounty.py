@@ -2,10 +2,16 @@ import json
 import urllib.request
 import sys
 
-with open("credentials.json", "r") as f:
-    creds = json.load(f)
+import os
 
-api_key = creds["apiKey"]
+api_key = os.environ.get("SUPERTEAM_API_KEY")
+if not api_key:
+    try:
+        with open("credentials.json", "r") as f:
+            creds = json.load(f)
+            api_key = creds.get("apiKey")
+    except FileNotFoundError:
+        pass
 
 def submit_listing(listing_id, link, description_info, telegram=None, eligibility_answers=[]):
     url = "https://superteam.fun/api/agents/submissions/create"

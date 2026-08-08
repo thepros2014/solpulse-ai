@@ -2,7 +2,7 @@ name: AI Bounty Processor
 
 on:
   schedule:
-    - cron: '0 * * * *' # Run every hour
+    - cron: '0 */12 * * *' # Run every 12 hours
   workflow_dispatch: # Allow manual trigger
 
 jobs:
@@ -37,6 +37,8 @@ jobs:
           
       - name: Run AI Bounty Evaluation
         env:
-          # We pass the secret API key into the environment so credentials.json isn't needed on GitHub
+          # We pass the secret API keys into the environment
           SUPERTEAM_API_KEY: ${{ secrets.SUPERTEAM_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python process_with_ai.py

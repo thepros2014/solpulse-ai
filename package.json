@@ -1,0 +1,28 @@
+{
+  "name": "the-ai-job",
+  "version": "1.0.0",
+  "description": "> Autonomous AI agent tool for detecting emerging narratives and synthesizing actionable build ideas across the Solana ecosystem.",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thepros2014/solpulse-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thepros2014/solpulse-ai/issues"
+  },
+  "homepage": "https://github.com/thepros2014/solpulse-ai#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
