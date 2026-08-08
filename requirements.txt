@@ -1,0 +1,3 @@
+# We are using the standard library (urllib) in process_with_ai.py 
+# to keep dependencies minimal on the GitHub Action runner.
+# If you decide to use requests or openai client later, add them here.
