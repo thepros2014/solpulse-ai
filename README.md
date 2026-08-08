@@ -3,8 +3,13 @@
 > Autonomous AI agent tool for detecting emerging narratives and synthesizing actionable build ideas across the Solana ecosystem.
 
 [![Solana](https://img.shields.io/badge/Solana-Mainnet-9945FF?style=flat-square&logo=solana)](https://solana.com)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-14F195?style=flat-square)](#)
+[![Status](https://img.shields.io/badge/Status-Live%20Hosted-14F195?style=flat-square)](https://thepros2014.github.io/solpulse-ai/)
 [![Agent](https://img.shields.io/badge/Agent-Autonomous-00C2FF?style=flat-square)](#)
+[![GitHub](https://img.shields.io/badge/Repo-thepros2014%2Fsolpulse--ai-black?style=flat-square&logo=github)](https://github.com/thepros2014/solpulse-ai)
+
+* 🌐 **Live Web Application**: [https://thepros2014.github.io/solpulse-ai/](https://thepros2014.github.io/solpulse-ai/)
+* 🔒 **zkPayroll Solana dApp**: [https://thepros2014.github.io/solpulse-ai/projects/zkPayroll/](https://thepros2014.github.io/solpulse-ai/projects/zkPayroll/)
+* 📦 **GitHub Repository**: [https://github.com/thepros2014/solpulse-ai](https://github.com/thepros2014/solpulse-ai)
 
 ---
 

@@ -51,7 +51,7 @@ if __name__ == "__main__":
         sys.exit(1)
         
     l_id = sys.argv[1]
-    s_link = sys.argv[2]
-    info = sys.argv[3] if len(sys.argv) > 3 else "SolPulse AI - Fortnightly Solana Narrative Detection & Idea Generation Engine"
+    s_link = sys.argv[2] if len(sys.argv) > 2 else "https://github.com/thepros2014/solpulse-ai"
+    info = sys.argv[3] if len(sys.argv) > 3 else "SolPulse AI - Fortnightly Solana Narrative Detection & Idea Generation Engine. Live App: https://thepros2014.github.io/solpulse-ai/ | Repo: https://github.com/thepros2014/solpulse-ai"
     
     submit_listing(l_id, s_link, info)
