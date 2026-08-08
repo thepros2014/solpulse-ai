@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JupiterSignalDCA</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <h1>JupiterSignal<span>DCA</span></h1>
+      <div class="status">Agent Status: <span class="active">● LIVE (Simulated)</span></div>
+    </header>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Total Simulated Value</h3>
+        <p>$12,450.00</p>
+      </div>
+      <div class="metric-card">
+        <h3>Signals Processed</h3>
+        <p>1,495</p>
+      </div>
+      <div class="metric-card">
+        <h3>Win Rate vs Benchmark</h3>
+        <p>+14.2%</p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="signals-panel">
+        <h2>Live Strategy Signals</h2>
+        <div id="signals-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      
+      <div class="chart-panel">
+        <h2>Signal vs Price Correlation</h2>
+        <canvas id="correlationChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="dca-schedule">
+      <h2>DCA Schedule Simulator</h2>
+      <div id="schedule-container">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

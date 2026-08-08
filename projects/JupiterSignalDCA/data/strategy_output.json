@@ -1,0 +1,232 @@
+[
+  {
+    "narrative": "ZK-Compression",
+    "token": "SOL",
+    "mint": "So11111111111111111111111111111111111111112",
+    "symbol": "SOL",
+    "action": "BUY",
+    "nms": 93,
+    "price": "145.32",
+    "rationale": "NMS is 93. Strong momentum, triggering DCA buy signal for SOL.",
+    "quotePayload": {
+      "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "inAmount": "10000000",
+      "outputMint": "So11111111111111111111111111111111111111112",
+      "outAmount": "135191496",
+      "otherAmountThreshold": "134515539",
+      "swapMode": "ExactIn",
+      "slippageBps": 50,
+      "platformFee": null,
+      "priceImpactPct": "0",
+      "routePlan": [
+        {
+          "swapInfo": {
+            "ammKey": "F4eV7X2tk6SEkbg86T36mMbqCzdECKLKiXe3MNBvn7Zy",
+            "label": "Meteora DLMM",
+            "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "outputMint": "So11111111111111111111111111111111111111112",
+            "inAmount": "8102269",
+            "outAmount": "109533936",
+            "updateContextSlot": "437914313"
+          },
+          "percent": null,
+          "bps": 8102
+        },
+        {
+          "swapInfo": {
+            "ammKey": "Pi9nzTjPxD8DsRfRBGfKYzmefJoJM8TcXu2jyaQjSHm",
+            "label": "AlphaQ",
+            "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "outputMint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+            "inAmount": "1794190",
+            "outAmount": "1794936",
+            "updateContextSlot": "437914364"
+          },
+          "percent": null,
+          "bps": 1794
+        },
+        {
+          "swapInfo": {
+            "ammKey": "ExcBWu8fGPdJiaF1b1z3iEef38sjQJks8xvj6M85pPY6",
+            "label": "Raydium CLMM",
+            "inputMint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+            "outputMint": "So11111111111111111111111111111111111111112",
+            "inAmount": "1794936",
+            "outAmount": "24256264",
+            "updateContextSlot": "437914146"
+          },
+          "percent": null,
+          "bps": 10000
+        },
+        {
+          "swapInfo": {
+            "ammKey": "sZxb9vrxJBpFiJBogovhfkYqfapVzveLEU4TmzWv4GN",
+            "label": "Meteora DLMM",
+            "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "outputMint": "So11111111111111111111111111111111111111112",
+            "inAmount": "103541",
+            "outAmount": "1401296",
+            "updateContextSlot": "437914361"
+          },
+          "percent": null,
+          "bps": 104
+        }
+      ],
+      "contextSlot": 437914364,
+      "timeTaken": 0.073916427,
+      "swapUsdValue": "9.9989219148859508385984",
+      "mostReliableAmmsQuoteReport": {
+        "info": {
+          "BZtgQEyS6eXUXicYPHecYQ7PybqodXQMvkjUbP4R8mUU": "10004050",
+          "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE": "135180465",
+          "8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ": "10004152"
+        }
+      },
+      "longtailMarketQuoteReport": null,
+      "useIncurredSlippageForQuoting": false,
+      "useRewards": true,
+      "otherRoutePlans": null,
+      "loadedLongtailToken": false,
+      "instructionVersion": "V2"
+    }
+  },
+  {
+    "narrative": "Firedancer",
+    "token": "JTO",
+    "mint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "symbol": "JTO",
+    "action": "BUY",
+    "nms": 91,
+    "price": "2.45",
+    "rationale": "NMS is 91. Strong momentum, triggering DCA buy signal for JTO.",
+    "quotePayload": {
+      "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "inAmount": "10000000",
+      "outputMint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+      "outAmount": "104532348",
+      "otherAmountThreshold": "104009687",
+      "swapMode": "ExactIn",
+      "slippageBps": 50,
+      "platformFee": null,
+      "priceImpactPct": "0.0002225573042857587447381875",
+      "routePlan": [
+        {
+          "swapInfo": {
+            "ammKey": "4tJW2axbTxtT6nKbjB5pZwePtW84cB7E1B6tdCCLGfrC",
+            "label": "Whirlpool",
+            "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "outputMint": "5YMkXAYccHSGnHn9nob9xEvv6Pvka9DZWH7nTbotTu9E",
+            "inAmount": "9637799",
+            "outAmount": "9619352",
+            "updateContextSlot": "437914314"
+          },
+          "percent": null,
+          "bps": 9638
+        },
+        {
+          "swapInfo": {
+            "ammKey": "BM4rn7ES2JEo2BXLh62etYRHCk137NhLVsZ8Uhr91d9p",
+            "label": "Whirlpool",
+            "inputMint": "5YMkXAYccHSGnHn9nob9xEvv6Pvka9DZWH7nTbotTu9E",
+            "outputMint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+            "inAmount": "9619352",
+            "outAmount": "100745530",
+            "updateContextSlot": "437914314"
+          },
+          "percent": null,
+          "bps": 10000
+        },
+        {
+          "swapInfo": {
+            "ammKey": "F9SNVFmT1qxGrMnMDBp6xZNTC6AbXYzvXV4b8tez3NfN",
+            "label": "Whirlpool",
+            "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "outputMint": "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB",
+            "inAmount": "362201",
+            "outAmount": "362175",
+            "updateContextSlot": "437914313"
+          },
+          "percent": null,
+          "bps": 362
+        },
+        {
+          "swapInfo": {
+            "ammKey": "4zQTE5nVDtykQavfRh2u5Fy6c9G2mzvX5n1qqAzAoswM",
+            "label": "Meteora DLMM",
+            "inputMint": "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB",
+            "outputMint": "So11111111111111111111111111111111111111112",
+            "inAmount": "362175",
+            "outAmount": "4897716",
+            "updateContextSlot": "437914246"
+          },
+          "percent": null,
+          "bps": 10000
+        },
+        {
+          "swapInfo": {
+            "ammKey": "hKH9LFREBm3TxTx5Ex6D1nHTKEA8ii3CWfhEkB9s21u",
+            "label": "AlphaQ",
+            "inputMint": "So11111111111111111111111111111111111111112",
+            "outputMint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+            "inAmount": "4897716",
+            "outAmount": "3786818",
+            "updateContextSlot": "437914362"
+          },
+          "percent": null,
+          "bps": 10000
+        }
+      ],
+      "contextSlot": 437914365,
+      "timeTaken": 0.255729649,
+      "swapUsdValue": "9.997177642784320",
+      "mostReliableAmmsQuoteReport": {
+        "info": {
+          "4tJW2axbTxtT6nKbjB5pZwePtW84cB7E1B6tdCCLGfrC": "9980860",
+          "Hp53XEtt4S8SvPCXarsLSdGfZBuUr5mMmZmX2DRNXQKp": "104504908",
+          "BZtgQEyS6eXUXicYPHecYQ7PybqodXQMvkjUbP4R8mUU": "10004050",
+          "BCDdHonby65iduz3Ev3c9v5XjNkzyu5e56KRFHpBM4T9": "9999718",
+          "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE": "135180465"
+        }
+      },
+      "longtailMarketQuoteReport": null,
+      "useIncurredSlippageForQuoting": false,
+      "useRewards": true,
+      "otherRoutePlans": null,
+      "loadedLongtailToken": false,
+      "instructionVersion": "V2"
+    }
+  },
+  {
+    "narrative": "DeAgentic",
+    "token": "SEND",
+    "mint": "SENDdRQtYMWaQrBroBrJ2Q53fgVuq95CV9UPBvqPeVK",
+    "symbol": "SEND",
+    "action": "HOLD",
+    "nms": 90,
+    "price": "0.12",
+    "rationale": "NMS is 90. Stable momentum, holding SEND.",
+    "quotePayload": null
+  },
+  {
+    "narrative": "DePIN",
+    "token": "HNT",
+    "mint": "hntyVP6YFm1Hg25TN9WGLqM12b8TQmcknKrdu1oxWux",
+    "symbol": "HNT",
+    "action": "HOLD",
+    "nms": 89,
+    "price": "4.31",
+    "rationale": "NMS is 89. Stable momentum, holding HNT.",
+    "quotePayload": null
+  },
+  {
+    "narrative": "RWA",
+    "token": "USDY",
+    "mint": "A1KLoBrKBde8Ty9qtNQUtq3C2ortoC3u7twggz7sEto",
+    "symbol": "USDY",
+    "action": "HOLD",
+    "nms": 75,
+    "price": "1.00",
+    "rationale": "NMS is 75. Stable momentum, holding USDY.",
+    "quotePayload": null
+  }
+]
