@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolAudit Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">SolAudit <span>Security Dashboard</span></div>
+        <div class="status">Agent Status: <span class="active">Scan Complete</span></div>
+    </header>
+
+    <main>
+        <section class="summary">
+            <h2>Severity Breakdown</h2>
+            <div class="chart-container">
+                <canvas id="severityChart"></canvas>
+            </div>
+        </section>
+
+        <section class="findings">
+            <h2>Audit Findings</h2>
+            <table id="findingsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Severity</th>
+                        <th>Vulnerability Class</th>
+                        <th>File</th>
+                        <th>Line</th>
+                    </tr>
+                </thead>
+                <tbody id="findingsBody">
+                    <!-- Data populated by JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        // Fetch findings
+        fetch('data/audit_findings.json')
+            .then(res => res.json())
+            .then(data => {
+                const findings = data.findings;
+                
+                // Populate Chart
+                const severities = { Critical: 0, High: 0, Medium: 0, Low: 0 };
+                findings.forEach(f => severities[f.severity]++);
+                
+                const ctx = document.getElementById('severityChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Critical', 'High', 'Medium', 'Low'],
+                        datasets: [{
+                            data: [severities.Critical, severities.High, severities.Medium, severities.Low],
+                            backgroundColor: ['#ff4d4f', '#ffa940', '#bae637', '#69c0ff'],
+                            borderColor: '#141414',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: { color: '#e0e0e0' }
+                            }
+                        }
+                    }
+                });
+
+                // Populate Table
+                const tbody = document.getElementById('findingsBody');
+                findings.forEach(f => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'finding-row';
+                    tr.innerHTML = `
+                        <td>${f.id}</td>
+                        <td><span class="sev-badge sev-${f.severity.toLowerCase()}">${f.severity}</span></td>
+                        <td>${f.class}</td>
+                        <td>${f.file}</td>
+                        <td>${f.line}</td>
+                    `;
+                    const detailTr = document.createElement('tr');
+                    detailTr.className = 'detail-row';
+                    detailTr.style.display = 'none';
+                    detailTr.innerHTML = `
+                        <td colspan="5">
+                            <div class="details">
+                                <p><strong>Description:</strong> ${f.description}</p>
+                                <p><strong>Impact:</strong> ${f.impact}</p>
+                                <div class="code-compare">
+                                    <div class="code-box">
+                                        <h4>Vulnerable Code</h4>
+                                        <pre><code>${f.snippet}</code></pre>
+                                    </div>
+                                    <div class="code-box fixed">
+                                        <h4>Remediated Code</h4>
+                                        <pre><code>${f.fix}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+                    
+                    tr.addEventListener('click', () => {
+                        detailTr.style.display = detailTr.style.display === 'none' ? 'table-row' : 'none';
+                    });
+                    
+                    tbody.appendChild(tr);
+                    tbody.appendChild(detailTr);
+                });
+            })
+            .catch(err => {
+                console.error('Error loading findings', err);
+                document.getElementById('findingsBody').innerHTML = '<tr><td colspan="5">Error loading findings data. Ensure you run node agent/auditor.js and load this page from a server.</td></tr>';
+            });
+    </script>
+</body>
+</html>

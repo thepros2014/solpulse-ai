@@ -1,0 +1,37 @@
+{
+  "findings": [
+    {
+      "id": "VULN-1",
+      "class": "Unchecked Unwrap",
+      "severity": "Medium",
+      "file": "data/vulnerable_examples/vulnerable_escrow.rs",
+      "line": 16,
+      "snippet": "let parsed_data = String::from_utf8(some_data.data.borrow().to_vec()).unwrap();",
+      "description": "Use of unwrap() on a fallible operation can panic the program.",
+      "impact": "Unexpected program crashes or denial of service.",
+      "fix": "let parsed_data = String::from_utf8(some_data.data.borrow().to_vec()).map_err(|_| MyError::InvalidData)?;"
+    },
+    {
+      "id": "VULN-2",
+      "class": "Re-initialization Attack",
+      "severity": "High",
+      "file": "data/vulnerable_examples/vulnerable_staking.rs",
+      "line": 13,
+      "snippet": "staking_account.is_initialized = true;",
+      "description": "Missing check to prevent re-initializing an already initialized account.",
+      "impact": "Attackers can reset account state, overwriting balances or owner data.",
+      "fix": "require!(!staking_account.is_initialized, CustomError::AlreadyInitialized);\nstaking_account.is_initialized = true;"
+    },
+    {
+      "id": "VULN-3",
+      "class": "Integer Overflow",
+      "severity": "Critical",
+      "file": "data/vulnerable_examples/vulnerable_vault.rs",
+      "line": 15,
+      "snippet": "vault.balance = vault.balance - amount;",
+      "description": "Arithmetic operation performed without checked math.",
+      "impact": "Underflow/Overflow can lead to logic bypass, such as infinite token printing.",
+      "fix": "vault.balance = vault.balance.checked_sub(amount).unwrap();"
+    }
+  ]
+}
