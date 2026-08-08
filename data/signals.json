@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-08T06:54:09.221Z",
+  "updatedAt": "2026-08-08T12:49:44.983Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 2770,
-    "slotHeight": 437945228,
+    "tps": 3076,
+    "slotHeight": 437995806,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -43,7 +43,7 @@
           "repo": "light-protocol",
           "stars": 340,
           "forks": 97,
-          "daysSincePush": 4.8,
+          "daysSincePush": 5,
           "recentCommits": 0,
           "score": 99
         },
@@ -87,7 +87,7 @@
           "repo": "firedancer",
           "stars": 1509,
           "forks": 505,
-          "daysSincePush": 0.3,
+          "daysSincePush": 0.5,
           "recentCommits": 100,
           "score": 99
         },
@@ -97,9 +97,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1874,
-          "forks": 1150,
-          "daysSincePush": 0.2,
+          "stars": 1875,
+          "forks": 1151,
+          "daysSincePush": 0.4,
           "recentCommits": 100,
           "score": 99
         }
@@ -186,8 +186,8 @@
           "owner": "solana-labs",
           "repo": "solana",
           "stars": 14941,
-          "forks": 5801,
-          "daysSincePush": 562.5,
+          "forks": 5802,
+          "daysSincePush": 562.7,
           "recentCommits": 0,
           "score": 70
         }
@@ -219,7 +219,7 @@
           "repo": "solana-program-library",
           "stars": 4238,
           "forks": 2398,
-          "daysSincePush": 514.8,
+          "daysSincePush": 515.1,
           "recentCommits": 0,
           "score": 62
         },
@@ -229,9 +229,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1874,
-          "forks": 1150,
-          "daysSincePush": 0.2,
+          "stars": 1875,
+          "forks": 1151,
+          "daysSincePush": 0.4,
           "recentCommits": 100,
           "score": 99
         }
