@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zkPayroll Solana | ZK-Compressed Mass Payout Platform</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <div class="app-background">
+    <div class="bg-glow purple-glow"></div>
+    <div class="bg-glow green-glow"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="navbar glass-panel">
+      <div class="brand">
+        <div class="logo-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span class="pulse-ring"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">zkPayroll <span class="sol-badge">Solana ZK</span></div>
+          <div class="brand-subtitle">Privacy-Preserving Mass Payout Engine</div>
+        </div>
+      </div>
+
+      <div class="treasury-header-stats">
+        <div class="stat-pill">
+          <span class="pill-label"><i class="fa-solid fa-vault"></i> Vault Balance:</span>
+          <span class="pill-value" id="vaultBalance">$185,400.00 USDC</span>
+        </div>
+        <div class="stat-pill highlight-green">
+          <span class="pill-label"><i class="fa-solid fa-compress"></i> ZK State Rent Saved:</span>
+          <span class="pill-value" id="rentSavedBadge">99.98% (10,000x)</span>
+        </div>
+        <div class="stat-pill">
+          <span class="pill-label"><i class="fa-solid fa-network-wired"></i> Merkle Depth:</span>
+          <span class="pill-value">Depth 26 (67.1M Max)</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="network-selector">
+          <span class="status-dot online"></span>
+          <select id="networkSelect" class="glass-select">
+            <option value="mainnet">Mainnet-Beta (ZK Subtree)</option>
+            <option value="devnet" selected>Devnet Light Protocol</option>
+            <option value="testnet">Localnet (zkSVM Anchor)</option>
+          </select>
+        </div>
+        <button id="walletBtn" class="btn btn-solana-gradient">
+          <i class="fa-solid fa-wallet"></i>
+          <span id="walletBtnText">Connect Wallet</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Wizard Step Indicator Bar -->
+      <section class="wizard-container glass-panel">
+        <div class="wizard-steps">
+          <div class="step active" data-step="1" id="step1Indicator">
+            <div class="step-num"><i class="fa-solid fa-file-csv"></i></div>
+            <div class="step-details">
+              <span class="step-title">1. Import Payroll</span>
+              <span class="step-desc">CSV or Template</span>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step" data-step="2" id="step2Indicator">
+            <div class="step-num"><i class="fa-solid fa-table-list"></i></div>
+            <div class="step-details">
+              <span class="step-title">2. Review & Edit</span>
+              <span class="step-desc">Confidential Entries</span>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step" data-step="3" id="step3Indicator">
+            <div class="step-num"><i class="fa-solid fa-microchip"></i></div>
+            <div class="step-details">
+              <span class="step-title">3. ZK Proof Sync</span>
+              <span class="step-desc">Groth16 Syscall</span>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step" data-step="4" id="step4Indicator">
+            <div class="step-num"><i class="fa-solid fa-rocket"></i></div>
+            <div class="step-details">
+              <span class="step-title">4. Execute Batch</span>
+              <span class="step-desc">1-Click Payout</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid Layout: Left Column Main Workflow, Right Column Live Telemetry -->
+      <div class="dashboard-grid">
+        
+        <!-- Left Column: CSV Upload, Payroll Table, Execution -->
+        <div class="grid-column primary-column">
+          
+          <!-- Step 1: Upload & Action Panel -->
+          <div class="glass-panel card-section" id="uploadSection">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-cloud-arrow-up icon-purple"></i>
+                Payroll Input & CSV Import
+              </div>
+              <div class="header-actions">
+                <button class="btn btn-secondary btn-sm" id="loadSampleBtn">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Load Sample Team (10 Payouts)
+                </button>
+                <button class="btn btn-secondary btn-sm" id="downloadTemplateBtn">
+                  <i class="fa-solid fa-download"></i> Download CSV Template
+                </button>
+              </div>
+            </div>
+
+            <!-- CSV Drag & Drop Zone -->
+            <div class="drop-zone" id="dropZone">
+              <input type="file" id="csvFileInput" accept=".csv" class="file-input-hidden" />
+              <div class="drop-zone-content">
+                <div class="drop-icon">
+                  <i class="fa-solid fa-file-csv"></i>
+                </div>
+                <div class="drop-text">
+                  <h4>Drag & Drop your Payroll CSV file here</h4>
+                  <p>Or click to browse from your computer (`.csv` format: Address, Amount, Role, Shielded)</p>
+                </div>
+                <div class="drop-badge">
+                  <i class="fa-solid fa-lock"></i> Auto-encrypted client-side before ZK proofing
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Telemetry Bar -->
+          <div class="metrics-bar glass-panel">
+            <div class="metric-card">
+              <div class="metric-icon purple"><i class="fa-solid fa-sack-dollar"></i></div>
+              <div class="metric-data">
+                <span class="metric-label">Total Batch Payout</span>
+                <span class="metric-value" id="summaryTotalAmount">$0.00 USDC</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon green"><i class="fa-solid fa-users"></i></div>
+              <div class="metric-data">
+                <span class="metric-label">Total Recipients</span>
+                <span class="metric-value" id="summaryRecipientCount">0 Employees</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon cyan"><i class="fa-solid fa-piggy-bank"></i></div>
+              <div class="metric-data">
+                <span class="metric-label">Est. Rent Saved</span>
+                <span class="metric-value" id="summaryRentSaved">$0.00 (0 SOL)</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon gold"><i class="fa-solid fa-bolt"></i></div>
+              <div class="metric-data">
+                <span class="metric-label">Proof Latency</span>
+                <span class="metric-value" id="summaryLatency">~120 ms</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Interactive Payroll Table Editor -->
+          <div class="glass-panel card-section" id="tableSection">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-list-check icon-green"></i>
+                Payroll Recipients Editor
+                <span class="badge badge-purple" id="tableCountBadge">0 Entries</span>
+              </div>
+              <div class="header-actions">
+                <button class="btn btn-outline btn-sm" id="addRecipientBtn">
+                  <i class="fa-solid fa-plus"></i> Add Row
+                </button>
+                <button class="btn btn-outline btn-sm btn-danger-ghost" id="clearTableBtn">
+                  <i class="fa-solid fa-trash-can"></i> Clear All
+                </button>
+              </div>
+            </div>
+
+            <!-- Table Filter & Search -->
+            <div class="table-toolbar">
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="tableSearchInput" placeholder="Search address, role, or status..." class="glass-input" />
+              </div>
+              <div class="filter-group">
+                <label><i class="fa-solid fa-shield"></i> Privacy Filter:</label>
+                <select id="privacyFilter" class="glass-select-sm">
+                  <option value="all">All Rows</option>
+                  <option value="confidential">ZK Shielded Only</option>
+                  <option value="public">Public On-Chain</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Responsive Table -->
+            <div class="table-responsive">
+              <table class="payroll-table" id="payrollTable">
+                <thead>
+                  <tr>
+                    <th width="5%">#</th>
+                    <th width="32%">Solana Address / Compressed Account</th>
+                    <th width="18%">Role / Department</th>
+                    <th width="18%">Payout Amount (USDC)</th>
+                    <th width="12%">ZK Shield</th>
+                    <th width="10%">Leaf Hash</th>
+                    <th width="5%">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="payrollTableBody">
+                  <!-- Empty State -->
+                  <tr id="emptyTableState">
+                    <td colspan="7" class="text-center empty-state">
+                      <div class="empty-content">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <p>No payroll recipients loaded yet.</p>
+                        <small>Upload a CSV file above or click <strong>"Load Sample Team"</strong> to get started.</small>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Step 3 & 4: ZK Proof Generator & 1-Click Execution -->
+          <div class="glass-panel card-section highlight-border" id="executionSection">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-shield-halved icon-purple"></i>
+                ZK Proof Generator & Batch Settlement
+              </div>
+              <div class="circuit-tag">
+                <i class="fa-solid fa-microchip"></i> Circuit: <code>LightProtocol_Groth16_v2.wasm</code>
+              </div>
+            </div>
+
+            <!-- Proof Generator Status Progress -->
+            <div class="proof-status-card">
+              <div class="proof-header">
+                <span class="status-title" id="proofStatusText">Ready for Proof Generation</span>
+                <span class="status-percent" id="proofPercentText">0%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+              </div>
+              <div class="proof-steps-grid">
+                <div class="proof-step-item" id="pstep1">
+                  <i class="fa-solid fa-circle-notch spinner-hidden"></i>
+                  <span>1. Poseidon Tree Hashing</span>
+                </div>
+                <div class="proof-step-item" id="pstep2">
+                  <i class="fa-solid fa-circle-notch spinner-hidden"></i>
+                  <span>2. Witness Generation</span>
+                </div>
+                <div class="proof-step-item" id="pstep3">
+                  <i class="fa-solid fa-circle-notch spinner-hidden"></i>
+                  <span>3. Groth16 Proof Verification</span>
+                </div>
+                <div class="proof-step-item" id="pstep4">
+                  <i class="fa-solid fa-circle-notch spinner-hidden"></i>
+                  <span>4. Solana Syscall Settlement</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary 1-Click Action Button -->
+            <div class="execute-action-row">
+              <div class="sim-toggle-wrapper">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="simModeToggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Light Protocol Devnet Simulation Mode</span>
+              </div>
+              
+              <button id="executeBatchBtn" class="btn btn-hero-solana" disabled>
+                <span class="btn-glow"></span>
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <span id="executeBtnText">Execute ZK Batch Payout (1-Click)</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Live Proof Console, Proof Verification Visualizer & Breakdown Charts -->
+        <div class="grid-column secondary-column">
+          
+          <!-- ZK Proof Verification Animation & Merkle Root Card -->
+          <div class="glass-panel card-section">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-cube icon-cyan"></i>
+                State Tree & Cryptographic Proof
+              </div>
+            </div>
+            
+            <div class="proof-visualizer">
+              <div class="merkle-tree-graphic" id="merkleGraphic">
+                <div class="root-node node-pulse">
+                  <i class="fa-solid fa-tree"></i>
+                  <div class="node-label">Merkle Root</div>
+                  <div class="node-hash" id="merkleRootHash">0x8f3a...92b4</div>
+                </div>
+                <div class="tree-branches">
+                  <div class="branch-line left"></div>
+                  <div class="branch-line right"></div>
+                </div>
+                <div class="sub-nodes">
+                  <div class="sub-node">Subtree 0x4a</div>
+                  <div class="sub-node">Subtree 0x9c</div>
+                </div>
+              </div>
+              <div class="proof-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Proof System</span>
+                  <span class="meta-val">Groth16 (bn254)</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Syscall Verifier</span>
+                  <span class="meta-val highlight-green">sol_verify_groth16</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Account Rent</span>
+                  <span class="meta-val">0.000005 SOL / leaf</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Nullifiers</span>
+                  <span class="meta-val" id="nullifierCount">0 Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live ZK Proof Terminal Console -->
+          <div class="glass-panel card-section terminal-section">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-terminal icon-purple"></i>
+                ZK Engine Live Status Logs
+              </div>
+              <div class="header-actions">
+                <button class="btn btn-icon-sm" id="copyLogsBtn" title="Copy Console Logs">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+                <button class="btn btn-icon-sm" id="clearLogsBtn" title="Clear Logs">
+                  <i class="fa-solid fa-eraser"></i>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <div class="log-entry info"><span class="log-time">[19:22:00]</span> <span class="log-tag">[SYSTEM]</span> zkPayroll Solana Light Protocol v2.4 initialized.</div>
+              <div class="log-entry info"><span class="log-time">[19:22:01]</span> <span class="log-tag">[SOLANA]</span> Connected to Solana Devnet RPC endpoint.</div>
+              <div class="log-entry success"><span class="log-time">[19:22:01]</span> <span class="log-tag">[ZK_TREE]</span> Merkle Tree State initialized (Depth: 26, Canopy: 14).</div>
+              <div class="log-entry ready"><span class="log-time">[19:22:02]</span> <span class="log-tag">[PROVER]</span> Wasm Groth16 circuit verifier ready for witness input.</div>
+            </div>
+          </div>
+
+          <!-- Charts: Payout Breakdown & Cost Savings -->
+          <div class="glass-panel card-section">
+            <div class="section-header">
+              <div class="section-title">
+                <i class="fa-solid fa-chart-pie icon-green"></i>
+                Batch Breakdown & Savings Analytics
+              </div>
+              <div class="chart-tabs">
+                <button class="chart-tab active" data-chart="dept">Department</button>
+                <button class="chart-tab" data-chart="savings">Rent Savings</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="analyticsChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Settlement Execution History Modal / Section -->
+      <section class="glass-panel card-section history-section">
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fa-solid fa-clock-rotate-left icon-cyan"></i>
+            Executed ZK Batch Payout History
+          </div>
+          <button class="btn btn-secondary btn-sm" id="refreshHistoryBtn">
+            <i class="fa-solid fa-rotate-right"></i> Sync Solana On-Chain Logs
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="payroll-table history-table">
+            <thead>
+              <tr>
+                <th>Batch ID</th>
+                <th>Timestamp</th>
+                <th>Recipients</th>
+                <th>Total Value</th>
+                <th>Merkle Root After Settlement</th>
+                <th>Solana Transaction Signature</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <tr>
+                <td><code>#ZK-84920</code></td>
+                <td>2026-08-07 18:45</td>
+                <td>12 Employees</td>
+                <td>$48,500.00 USDC</td>
+                <td><span class="hash-code">0x7d2f9b8c...1a9e</span></td>
+                <td>
+                  <a href="#" class="sol-link" onclick="alert('Simulated Solana Explorer view for tx: 4Zp8...k9L2')">
+                    4Zp8k9L2mQ...vX7n <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </td>
+                <td><span class="badge badge-success"><i class="fa-solid fa-check"></i> Finalized</span></td>
+              </tr>
+              <tr>
+                <td><code>#ZK-84919</code></td>
+                <td>2026-08-01 10:15</td>
+                <td>8 Employees</td>
+                <td>$32,000.00 USDC</td>
+                <td><span class="hash-code">0x3e1a7c4f...8b2d</span></td>
+                <td>
+                  <a href="#" class="sol-link" onclick="alert('Simulated Solana Explorer view for tx: 3Xm9...p2K1')">
+                    3Xm9p2K1jF...wR5t <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </td>
+                <td><span class="badge badge-success"><i class="fa-solid fa-check"></i> Finalized</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer glass-panel">
+      <div class="footer-content">
+        <p>zkPayroll Solana &copy; 2026 — Powered by <strong>Light Protocol ZK Compression</strong> & <strong>Solana Syscall Verifier</strong>.</p>
+        <div class="footer-links">
+          <a href="#"><i class="fa-brands fa-github"></i> GitHub SDK</a>
+          <a href="#"><i class="fa-solid fa-book"></i> ZK Docs</a>
+          <a href="#"><i class="fa-solid fa-shield-halved"></i> Audit Report</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for Add / Edit Recipient -->
+  <div class="modal-overlay" id="recipientModal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fa-solid fa-user-plus icon-purple"></i> Add Payroll Recipient</h3>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="recipientForm">
+          <div class="form-group">
+            <label for="recipientAddress">Solana Public Key / Compressed Account</label>
+            <input type="text" id="recipientAddress" class="glass-input" placeholder="e.g. 7Xg2...kP9m or Solana address" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="recipientAmount">Payout Amount (USDC)</label>
+              <input type="number" id="recipientAmount" class="glass-input" placeholder="e.g. 4500.00" step="0.01" min="1" required />
+            </div>
+            <div class="form-group half">
+              <label for="recipientRole">Department / Role</label>
+              <select id="recipientRole" class="glass-select" required>
+                <option value="Engineering">Engineering</option>
+                <option value="Design">Design</option>
+                <option value="Product">Product</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Operations">Operations</option>
+                <option value="Executive">Executive</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group checkbox-group">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="recipientShielded" checked />
+              <span class="checkmark"></span>
+              <span class="checkbox-text">
+                <strong>Enable ZK Confidential Shield</strong> (Hides payout amount on-chain via ZK Pedersen Commitment)
+              </span>
+            </label>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" id="cancelModalBtn">Cancel</button>
+            <button type="submit" class="btn btn-solana-gradient">Save Recipient</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
