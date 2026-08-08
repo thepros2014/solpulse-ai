@@ -1,34 +1,34 @@
 {
-  "lastRunAt": "2026-08-08T02:58:49.272Z",
-  "elapsedMs": 2878,
+  "lastRunAt": "2026-08-08T03:04:09.788Z",
+  "elapsedMs": 1502,
   "totalNarratives": 5,
-  "avgMomentumScore": 90.2,
-  "liveCoveragePercent": 25,
+  "avgMomentumScore": 87.6,
+  "liveCoveragePercent": 19,
   "totalDataPoints": 16,
-  "liveDataPoints": 4,
-  "mockDataPoints": 12,
+  "liveDataPoints": 3,
+  "mockDataPoints": 13,
   "liveDataSources": [
-    "solana-narrative-2026-08-01:github",
-    "solana-narrative-2026-08-02:github",
-    "solana-narrative-2026-08-04:github",
-    "solana-narrative-2026-08-05:github"
+    "solana-narrative-2026-08-01:onchain",
+    "solana-narrative-2026-08-05:onchain",
+    "helius:tps"
   ],
   "mockDataSources": [
-    "solana-narrative-2026-08-01:onchain",
+    "solana-narrative-2026-08-01:github",
     "solana-narrative-2026-08-01:social",
+    "solana-narrative-2026-08-02:github",
     "solana-narrative-2026-08-02:onchain",
     "solana-narrative-2026-08-02:social",
     "solana-narrative-2026-08-03:github",
     "solana-narrative-2026-08-03:onchain",
     "solana-narrative-2026-08-03:social",
+    "solana-narrative-2026-08-04:github",
     "solana-narrative-2026-08-04:onchain",
     "solana-narrative-2026-08-04:social",
-    "solana-narrative-2026-08-05:onchain",
-    "solana-narrative-2026-08-05:social",
-    "helius:tps"
+    "solana-narrative-2026-08-05:github",
+    "solana-narrative-2026-08-05:social"
   ],
-  "heliusTps": 4200,
-  "heliusTpsLive": false,
-  "heliusSlotHeight": 0,
+  "heliusTps": 3209,
+  "heliusTpsLive": true,
+  "heliusSlotHeight": 437912524,
   "rpcEndpoint": "https://mainnet.helius-rpc.com/?api-key=demo"
 }

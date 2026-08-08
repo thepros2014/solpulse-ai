@@ -24,7 +24,7 @@ const https = require('https');
 // ──────────────────────────────────────────────────────────────────────────────
 
 /** Public Helius demo RPC – no auth required */
-const HELIUS_RPC_URL = 'https://mainnet.helius-rpc.com/?api-key=demo';
+const HELIUS_RPC_URL = 'https://mainnet.helius-rpc.com/?api-key=4d121ffc-426a-420c-ae27-9ae05f51ed09';
 
 /**
  * On-chain program addresses we track.
@@ -32,8 +32,8 @@ const HELIUS_RPC_URL = 'https://mainnet.helius-rpc.com/?api-key=demo';
  */
 const ONCHAIN_PROGRAMS = [
   {
-    address: '9sPuLD83C3PxNBKmzjBSbCPD1VeH62sNgfqdHYPQDpLe',
-    label: 'Light Protocol ZK Tree',
+    address: 'cTokenmWW8bLPjZEBAUgYy3zKxQZW6VKi7bqNFEVv3m',
+    label: 'Light Protocol Compressed Token',
     narrative: 'solana-narrative-2026-08-01'
   },
   {
@@ -42,7 +42,7 @@ const ONCHAIN_PROGRAMS = [
     narrative: 'solana-narrative-2026-08-02'
   },
   {
-    address: 'JUP6LkbZbjS1jKKwapdHNy74zbUWv76D095128',
+    address: 'JUP6LkbZbjS1jKKwapdHNy74zbUWv76D095128yGJuU',
     label: 'Jupiter Aggregator v6',
     narrative: 'solana-narrative-2026-08-03'
   },
@@ -52,11 +52,12 @@ const ONCHAIN_PROGRAMS = [
     narrative: 'solana-narrative-2026-08-04'
   },
   {
-    address: 'BGUMAp9Gq7iUvuBhXgPyYJu5xHYtmZkq2G',
+    address: 'BGUMAp9Gq7iUvuBhXgPyYJu5xHYtmZkq2GKCsDEP1yY',
     label: 'Metaplex Bubblegum (cNFT)',
     narrative: 'solana-narrative-2026-08-05'
   }
 ];
+
 
 // Solana ecosystem target repositories mapped to narratives
 const REPO_MAPPING = {
