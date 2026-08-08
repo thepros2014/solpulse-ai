@@ -124,9 +124,98 @@ node engine/runEngine.js
 
 ---
 
+## 📁 Project Structure
+
+```
+solpulse-ai/
+├── index.html                          # Intelligence dashboard (single-page app)
+├── app.js                              # Dashboard client-side orchestrator
+├── style.css                           # Dark glassmorphism design system
+│
+├── engine/
+│   ├── signalFetcher.js                # GitHub API fetcher + NMS calculator
+│   └── runEngine.js                    # Pipeline orchestrator (run this)
+│
+├── data/
+│   ├── narratives.json                 # Agent-curated narrative intelligence (input)
+│   └── signals.json                    # Machine-generated NMS scores (output)
+│
+├── projects/
+│   └── zkPayroll/                      # Flagship dApp — built from Narrative #1
+│       ├── index.html                  # zkPayroll UI
+│       ├── app.js                      # zkPayroll client app
+│       ├── style.css                   # zkPayroll styles
+│       ├── programs/
+│       │   └── zk-payroll/
+│       │       └── src/lib.rs          # Anchor ZK verifier program (Rust)
+│       └── sdk/
+│           └── payrollSdk.js           # Light Protocol v2 wrapper SDK
+│
+├── docs/
+│   ├── ARCHITECTURE.md                 # System design, NMS formula, component maps
+│   ├── NARRATIVES.md                   # Human-readable narrative intelligence report
+│   └── API.md                          # JSON data format reference
+│
+├── .github/
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md               # Bug report template
+│       └── feature_request.md          # Narrative proposal template
+│
+├── CONTRIBUTING.md                     # Contributing guide & agent-human model
+├── LICENSE                             # MIT License 2026
+└── README.md                           # This file
+```
+
+---
+
+## ⚙️ How It Works
+
+SolPulse AI operates as a **5-step autonomous intelligence pipeline**, run on a fortnightly cadence:
+
+**Step 1 — Signal Ingestion**
+`engine/signalFetcher.js` queries the GitHub REST API for all narrative-mapped repositories (9 repos across 5 narratives). For each repo, it extracts star count, fork count, and days since last push.
+
+**Step 2 — GitHub Velocity Scoring**
+A recency-weighted score is computed per repo:
+```
+recencyFactor = max(0.5, 1.5 - daysSincePush / 30)
+rawScore = min(100, (log10(stars+10) × 20 + log10(forks+5) × 15) × recencyFactor)
+```
+Scores from multiple repos are averaged into a single `githubVelocity` value per narrative.
+
+**Step 3 — On-Chain & KOL Signal Blending**
+On-chain spike intensity is parsed heuristically from the `helius_rpc_tx_spikes` text field in `narratives.json`. KOL sentiment is derived from `kol_posts` array length and content. Both are blended 50/50 with pre-set baseline scores.
+
+**Step 4 — NMS Calculation**
+The three signal layers are combined using the weighted formula:
+```
+NMS = 0.40 × GitHub_Velocity + 0.35 × OnChain_Spikes + 0.25 × KOL_Sentiment
+```
+
+**Step 5 — Output & Rendering**
+`engine/runEngine.js` writes `data/signals.json`. The browser loads both JSON files, and `app.js` renders the NMS radar chart, narrative cards, momentum trend lines, top contracts table, and KOL signal feed — all without a backend server.
+
+For the full technical deep-dive, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+---
+
 ## 🤖 Agent Autonomy Disclosure
 
 This project was conceived, architected, and built autonomously by an AI Agent team (`antigravity-agent`).
 * **Signal Telemetry**: Querying live GitHub REST endpoints & Helius transaction structures.
 * **Idea Generation**: Automated synthesis based on ecosystem needs and technical feasibility.
 * **Frontend**: Custom dark glassmorphism Web3 design with Chart.js matrix visualizations.
+
+---
+
+## 🤝 Contributing
+
+SolPulse AI welcomes contributions from the Solana developer community. This project uses a unique **agent-human collaboration model** — the AI agent authors narrative intelligence while humans improve the engine, frontend, and zkPayroll dApp.
+
+**Quick links:**
+- 📖 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full guide
+- 🐛 [Report a bug](.github/ISSUE_TEMPLATE/bug_report.md)
+- 💡 [Propose a new narrative](.github/ISSUE_TEMPLATE/feature_request.md)
+- 🏗️ [Architecture deep-dive](docs/ARCHITECTURE.md)
+- 📊 [Current narrative intelligence](docs/NARRATIVES.md)
+- 🔌 [JSON API reference](docs/API.md)

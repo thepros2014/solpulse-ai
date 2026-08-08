@@ -1,43 +1,62 @@
 {
-  "updatedAt": "2026-08-08T02:21:17.278Z",
+  "updatedAt": "2026-08-08T02:52:00.457Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
-  "avgMomentumScore": 91.4,
+  "avgMomentumScore": 90.2,
   "signalSourcesCount": 1495,
   "sourcesBreakdown": {
     "githubRepositories": 520,
     "onchainContracts": 335,
     "kolPostsAnalyzed": 690
   },
+  "heliusNetworkStats": {
+    "tps": 4200,
+    "slotHeight": 0,
+    "sampleCount": 0,
+    "dataTag": "[MOCK]"
+  },
+  "liveCoveragePercent": 25,
   "narrativeScores": [
     {
       "narrativeId": "solana-narrative-2026-08-01",
       "title": "ZK-Compression v2 & Native zkSVM State Scaling for Enterprise Privacy and Hyper-Scale Accounts",
-      "momentumScore": 94,
+      "momentumScore": 93,
       "signals": {
         "githubVelocity": 94,
-        "onchainSpikes": 95,
+        "onchainSpikes": 90,
         "kolSentiment": 94
+      },
+      "dataSourceStatus": {
+        "github": "[LIVE]",
+        "onchain": "[MOCK]",
+        "social": "[MOCK]",
+        "recentSigCount": 0
       },
       "fortnightlyVolume": "$450M",
       "changePercent": 34.5,
       "repoTelemetry": [
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "lightprotocol",
           "repo": "light-protocol",
           "stars": 340,
           "forks": 97,
           "daysSincePush": 4.6,
+          "recentCommits": 0,
           "score": 99
         },
         {
-          "success": false,
+          "liveSource": false,
+          "metaLive": false,
+          "commitLive": false,
           "owner": "helius-labs",
           "repo": "zk-compression",
           "stars": 1200,
           "forks": 350,
           "daysSincePush": 1.2,
+          "recentCommits": 0,
           "score": 88
         }
       ]
@@ -45,31 +64,43 @@
     {
       "narrativeId": "solana-narrative-2026-08-02",
       "title": "Firedancer Mainnet Dominance & Hardware-Accelerated Sub-Millisecond Financial Primitives",
-      "momentumScore": 98,
+      "momentumScore": 96,
       "signals": {
         "githubVelocity": 99,
-        "onchainSpikes": 98,
+        "onchainSpikes": 92,
         "kolSentiment": 95
+      },
+      "dataSourceStatus": {
+        "github": "[LIVE]",
+        "onchain": "[MOCK]",
+        "social": "[MOCK]",
+        "recentSigCount": 0
       },
       "fortnightlyVolume": "$620M",
       "changePercent": 28,
       "repoTelemetry": [
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "firedancer-io",
           "repo": "firedancer",
           "stars": 1509,
           "forks": 505,
           "daysSincePush": 0.1,
+          "recentCommits": 100,
           "score": 99
         },
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
           "stars": 1872,
           "forks": 1148,
           "daysSincePush": 0.1,
+          "recentCommits": 100,
           "score": 99
         }
       ]
@@ -77,31 +108,43 @@
     {
       "narrativeId": "solana-narrative-2026-08-03",
       "title": "DeAgentic Machine Economy: Autonomous AI Agent Swarms & x402 HTTP Micro-Payments",
-      "momentumScore": 91,
+      "momentumScore": 90,
       "signals": {
         "githubVelocity": 88,
-        "onchainSpikes": 92,
+        "onchainSpikes": 88,
         "kolSentiment": 96
+      },
+      "dataSourceStatus": {
+        "github": "[MOCK]",
+        "onchain": "[MOCK]",
+        "social": "[MOCK]",
+        "recentSigCount": 0
       },
       "fortnightlyVolume": "$380M",
       "changePercent": 41.2,
       "repoTelemetry": [
         {
-          "success": false,
+          "liveSource": false,
+          "metaLive": false,
+          "commitLive": false,
           "owner": "sendai-build",
           "repo": "solana-agent-kit",
           "stars": 1200,
           "forks": 350,
           "daysSincePush": 1.2,
+          "recentCommits": 0,
           "score": 88
         },
         {
-          "success": false,
+          "liveSource": false,
+          "metaLive": false,
+          "commitLive": false,
           "owner": "jupiter-ag",
           "repo": "jupiter-cpmm",
           "stars": 1200,
           "forks": 350,
           "daysSincePush": 1.2,
+          "recentCommits": 0,
           "score": 88
         }
       ]
@@ -109,31 +152,43 @@
     {
       "narrativeId": "solana-narrative-2026-08-04",
       "title": "DePIN 2.0: Hardware Enclave (TEE) Telemetry Verification & Seeker Mobile Edge Markets",
-      "momentumScore": 86,
+      "momentumScore": 85,
       "signals": {
         "githubVelocity": 79,
-        "onchainSpikes": 90,
+        "onchainSpikes": 87,
         "kolSentiment": 93
+      },
+      "dataSourceStatus": {
+        "github": "[LIVE]",
+        "onchain": "[MOCK]",
+        "social": "[MOCK]",
+        "recentSigCount": 0
       },
       "fortnightlyVolume": "$290M",
       "changePercent": 22,
       "repoTelemetry": [
         {
-          "success": false,
+          "liveSource": false,
+          "metaLive": false,
+          "commitLive": false,
           "owner": "helium",
           "repo": "solana-program-library",
           "stars": 1200,
           "forks": 350,
           "daysSincePush": 1.2,
+          "recentCommits": 0,
           "score": 88
         },
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
           "stars": 14942,
           "forks": 5799,
           "daysSincePush": 562.3,
+          "recentCommits": 0,
           "score": 70
         }
       ]
@@ -141,31 +196,43 @@
     {
       "narrativeId": "solana-narrative-2026-08-05",
       "title": "Institutional RWA 2.0 & Programmatic Dynamic Compliance via Token-2022 Transfer Hooks",
-      "momentumScore": 88,
+      "momentumScore": 87,
       "signals": {
         "githubVelocity": 81,
-        "onchainSpikes": 93,
+        "onchainSpikes": 89,
         "kolSentiment": 92
+      },
+      "dataSourceStatus": {
+        "github": "[LIVE]",
+        "onchain": "[MOCK]",
+        "social": "[MOCK]",
+        "recentSigCount": 0
       },
       "fortnightlyVolume": "$510M",
       "changePercent": 19.5,
       "repoTelemetry": [
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana-program-library",
           "stars": 4238,
           "forks": 2398,
-          "daysSincePush": 514.6,
+          "daysSincePush": 514.7,
+          "recentCommits": 0,
           "score": 62
         },
         {
-          "success": true,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
           "stars": 1872,
           "forks": 1148,
           "daysSincePush": 0.1,
+          "recentCommits": 100,
           "score": 99
         }
       ]
@@ -229,34 +296,34 @@
   ],
   "topContracts": [
     {
-      "name": "JUP6LkbZbjS1jKKwapdHNy74zbUWv76D095128",
-      "label": "Jupiter v6 Router",
-      "calls24h": "14.2M",
-      "growth": "+32%"
-    },
-    {
-      "name": "BGUMAp9Gq7iUvuBhXgPyYJu5xHYtmZkq2G",
-      "label": "Metaplex Bubblegum (cNFT)",
-      "calls24h": "8.9M",
-      "growth": "+45%"
-    },
-    {
-      "name": "Light2222222222222222222222222222",
+      "address": "9sPuLD83C3PxNBKmzjBSbCPD1VeH62sNgfqdHYPQDpLe",
       "label": "Light Protocol ZK Tree",
-      "calls24h": "6.8M",
-      "growth": "+120%"
+      "recentSigs": null,
+      "dataTag": "[MOCK]"
     },
     {
-      "name": "Jito45wWj2sk9B24559591141381389",
-      "label": "Jito Stake Pool",
-      "calls24h": "5.1M",
-      "growth": "+12%"
+      "address": "Jito4APyf642JPZPx3hGc6WWyEjBgMaLkGcFeSP39Dii",
+      "label": "Jito Stake Pool (Firedancer-linked)",
+      "recentSigs": null,
+      "dataTag": "[MOCK]"
     },
     {
-      "name": "SQDS42vkw2e57Zqsq7b87N4B28249821",
+      "address": "JUP6LkbZbjS1jKKwapdHNy74zbUWv76D095128",
+      "label": "Jupiter Aggregator v6",
+      "recentSigs": null,
+      "dataTag": "[MOCK]"
+    },
+    {
+      "address": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52Ux5Q",
       "label": "Squads V4 Smart Accounts",
-      "calls24h": "4.7M",
-      "growth": "+58%"
+      "recentSigs": null,
+      "dataTag": "[MOCK]"
+    },
+    {
+      "address": "BGUMAp9Gq7iUvuBhXgPyYJu5xHYtmZkq2G",
+      "label": "Metaplex Bubblegum (cNFT)",
+      "recentSigs": null,
+      "dataTag": "[MOCK]"
     }
   ],
   "topKOLSignals": [

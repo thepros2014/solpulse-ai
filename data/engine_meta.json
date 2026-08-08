@@ -1,0 +1,34 @@
+{
+  "lastRunAt": "2026-08-08T02:52:00.458Z",
+  "elapsedMs": 6565,
+  "totalNarratives": 5,
+  "avgMomentumScore": 90.2,
+  "liveCoveragePercent": 25,
+  "totalDataPoints": 16,
+  "liveDataPoints": 4,
+  "mockDataPoints": 12,
+  "liveDataSources": [
+    "solana-narrative-2026-08-01:github",
+    "solana-narrative-2026-08-02:github",
+    "solana-narrative-2026-08-04:github",
+    "solana-narrative-2026-08-05:github"
+  ],
+  "mockDataSources": [
+    "solana-narrative-2026-08-01:onchain",
+    "solana-narrative-2026-08-01:social",
+    "solana-narrative-2026-08-02:onchain",
+    "solana-narrative-2026-08-02:social",
+    "solana-narrative-2026-08-03:github",
+    "solana-narrative-2026-08-03:onchain",
+    "solana-narrative-2026-08-03:social",
+    "solana-narrative-2026-08-04:onchain",
+    "solana-narrative-2026-08-04:social",
+    "solana-narrative-2026-08-05:onchain",
+    "solana-narrative-2026-08-05:social",
+    "helius:tps"
+  ],
+  "heliusTps": 4200,
+  "heliusTpsLive": false,
+  "heliusSlotHeight": 0,
+  "rpcEndpoint": "https://mainnet.helius-rpc.com/?api-key=demo"
+}
