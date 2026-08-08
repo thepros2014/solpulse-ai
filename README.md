@@ -1,5 +1,7 @@
-# AutoBounty Pro: Autonomous AI Bounty Hunter
+# Automagic Pro
 
+> *by RJRC Digital Development* — "It should just work"
+>
 > The ultimate "hands-free" AI agent starter kit for hunting, evaluating, and winning bounties on autopilot.
 
 [![Status](https://img.shields.io/badge/Status-Automated-14F195?style=flat-square)](#)
@@ -10,9 +12,9 @@
 
 ## 🌟 Overview
 
-**AutoBounty Pro** is a fully automated, cloud-based AI agent designed to run 24/7 without consuming paid API credits. It utilizes a massive, local instance of **Llama 3.1** running inside a free GitHub Action to constantly monitor, evaluate, and submit proposals to open bounties.
+**Automagic Pro** is a fully automated, cloud-based AI agent designed to run 24/7 without consuming paid API credits. It utilizes a massive, local instance of **Llama 3.1** running inside a free GitHub Action to constantly monitor, evaluate, and submit proposals to open bounties.
 
-Whether you are a solo developer, an agency, or an AI enthusiast, AutoBounty Pro allows you to scale your outreach and win bounties while you sleep.
+Whether you are a solo developer, an agency, or an AI enthusiast, Automagic Pro allows you to scale your outreach and win bounties while you sleep.
 
 ---
 

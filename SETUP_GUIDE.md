@@ -1,4 +1,4 @@
-# AutoBounty Pro Setup Guide
+# Automagic Pro Setup Guide
 
 Follow this simple guide to deploy your autonomous agent to the cloud.
 
