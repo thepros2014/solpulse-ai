@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolPulse AI | Solana Fortnightly Narrative & Idea Generator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Background Glow & Particle FX Elements -->
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+  <div class="bg-gradient-orb orb-3"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Application Shell -->
+  <div class="app-container">
+    
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="logo-wrapper">
+          <div class="logo-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#sol-gradient)" stroke="#14F195" stroke-width="1.5" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="sol-gradient" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#9945FF"/>
+                  <stop offset="0.5" stop-color="#00C2FF"/>
+                  <stop offset="1" stop-color="#14F195"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="logo-pulse"></div>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">SolPulse <span class="badge-ai">AI</span></div>
+          <div class="brand-subtitle">Solana Fortnightly Narrative & Idea Generator</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="tab-dashboard">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </button>
+        <button class="nav-tab" data-tab="tab-analytics">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Analytics & Trends
+        </button>
+        <button class="nav-tab" data-tab="tab-synthesizer">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          AI Idea Synthesizer
+        </button>
+        <button class="nav-tab" data-tab="tab-api">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Data Inspector / API
+        </button>
+      </nav>
+
+      <!-- Status Indicator -->
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span class="status-text">Fortnight 16 Active</span>
+        <span class="cycle-timer" id="cycle-timer">Cycle Ends in 4d 12h</span>
+      </div>
+    </header>
+
+    <!-- Top KPI Stats Bar -->
+    <section class="kpi-bar">
+      <div class="kpi-card">
+        <div class="kpi-icon icon-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="kpi-info">
+          <span class="kpi-label">Narratives Monitored</span>
+          <span class="kpi-value" id="kpi-narratives">6 Active</span>
+          <span class="kpi-subtext"><span class="trend-up">↑ 100%</span> ecosystem coverage</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon icon-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="kpi-info">
+          <span class="kpi-label">Avg Momentum Score</span>
+          <span class="kpi-value" id="kpi-momentum">88.7 / 100</span>
+          <span class="kpi-subtext"><span class="trend-up">↑ +18.4%</span> vs last fortnight</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon icon-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+        </div>
+        <div class="kpi-info">
+          <span class="kpi-label">Signal Sources</span>
+          <span class="kpi-value" id="kpi-sources">1,420 Feeders</span>
+          <span class="kpi-subtext">GitHub, Helius RPC, X KOLs</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon icon-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="kpi-info">
+          <span class="kpi-label">Est. 24h Trading Vol</span>
+          <span class="kpi-value" id="kpi-volume">$1.98 Billion</span>
+          <span class="kpi-subtext">Across narrative tokens</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main View Content Sections -->
+    <main class="content-area">
+      
+      <!-- TAB 1: DASHBOARD -->
+      <div class="tab-content active" id="tab-dashboard">
+        
+        <!-- Controls & Filters Bar -->
+        <div class="controls-card glass-panel">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-input" placeholder="Search Solana narratives, stacks, build ideas, or tags..." autocomplete="off">
+            <button class="btn-clear-search" id="btn-clear-search" title="Clear search">×</button>
+          </div>
+
+          <div class="filter-actions">
+            <!-- Category Chips -->
+            <div class="category-chips" id="category-chips">
+              <button class="chip active" data-category="all">All Categories</button>
+              <button class="chip" data-category="AI x DeFi">AI x DeFi</button>
+              <button class="chip" data-category="DePIN & AI">DePIN & AI</button>
+              <button class="chip" data-category="Consumer & UX">Consumer & UX</button>
+              <button class="chip" data-category="Infrastructure & ZK">Infrastructure & ZK</button>
+              <button class="chip" data-category="AI Infrastructure">AI Infrastructure</button>
+              <button class="chip" data-category="DeFi & Staking">DeFi & Staking</button>
+            </div>
+
+            <!-- Sort dropdown -->
+            <div class="sort-wrapper">
+              <label for="sort-select">Sort By:</label>
+              <select id="sort-select" class="glass-select">
+                <option value="momentum-desc">Momentum (High → Low)</option>
+                <option value="velocity-desc">GitHub Velocity</option>
+                <option value="sentiment-desc">KOL Sentiment</option>
+                <option value="change-desc">2W Growth %</option>
+                <option value="title-asc">Title (A → Z)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matching Count Indicator -->
+        <div class="results-header">
+          <div class="results-count" id="results-count">Showing 6 of 6 narratives</div>
+          <div class="legend-pills">
+            <span class="pill pill-purple">● GitHub Velocity</span>
+            <span class="pill pill-green">● On-Chain Spikes</span>
+            <span class="pill pill-cyan">● KOL Sentiment</span>
+          </div>
+        </div>
+
+        <!-- Narratives Grid -->
+        <div class="narratives-grid" id="narratives-grid">
+          <!-- Cards rendered dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- TAB 2: ANALYTICS & TRENDS -->
+      <div class="tab-content" id="tab-analytics">
+        <div class="analytics-layout">
+          
+          <div class="analytics-row">
+            <!-- Chart 1: Momentum Comparison -->
+            <div class="chart-panel glass-panel">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Narrative Signal Matrix</h3>
+                  <p class="chart-subtitle">Comparing GitHub commits, on-chain activity, and social sentiment</p>
+                </div>
+                <div class="chart-controls">
+                  <button class="chart-btn active" data-chart-type="bar">Bar View</button>
+                  <button class="chart-btn" data-chart-type="radar">Radar View</button>
+                </div>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="chart-signals-matrix"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Fortnightly Velocity Timeline -->
+            <div class="chart-panel glass-panel">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Fortnightly Commit & Activity Velocity</h3>
+                  <p class="chart-subtitle">Trend analysis across cycles (Fortnight 11 → Fortnight 16)</p>
+                </div>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="chart-fortnightly-trend"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Analytics Widgets -->
+          <div class="analytics-row">
+            
+            <!-- Top Contracts Widget -->
+            <div class="widget-panel glass-panel">
+              <h3 class="widget-title">🔥 Top On-Chain Smart Contracts (24h)</h3>
+              <div class="contracts-list" id="contracts-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Top Social Alpha Widget -->
+            <div class="widget-panel glass-panel">
+              <h3 class="widget-title">🐦 Key Ecosystem KOL Alpha Signals</h3>
+              <div class="kol-feed" id="kol-feed">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 3: AI IDEA SYNTHESIZER -->
+      <div class="tab-content" id="tab-synthesizer">
+        <div class="synthesizer-layout">
+          
+          <!-- Generator Config Panel -->
+          <div class="synth-config-panel glass-panel">
+            <h3 class="panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              AI Build Spec Synthesizer
+            </h3>
+            <p class="panel-desc">Configure target parameters to generate tailored Solana hackathon specs & Anchor program blueprints.</p>
+
+            <form id="synth-form" class="synth-form" onsubmit="return false;">
+              <div class="form-group">
+                <label for="synth-narrative">Primary Narrative Focus:</label>
+                <select id="synth-narrative" class="glass-select">
+                  <option value="auto">⚡ Auto-Select Highest Momentum (DeFAI)</option>
+                  <option value="nar-defai-agents">DeFAI Autonomous Trading & Liquidity Agents</option>
+                  <option value="nar-depin-compute">DePIN x AI Compute & Edge Networks</option>
+                  <option value="nar-blinks-actions">Solana Actions & Blinks 2.0</option>
+                  <option value="nar-zk-compression">ZK Privacy & Compressed NFTs</option>
+                  <option value="nar-ai-agent-micropayments">x402 & Micro-Billing Rails</option>
+                  <option value="nar-lst-restaking">Liquid Restaking & LST Fi</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="synth-stack">Tech Stack Focus:</label>
+                  <select id="synth-stack" class="glass-select">
+                    <option value="Anchor (Rust) + Solana Web3.js v2">Anchor (Rust) + Web3.js v2</option>
+                    <option value="Solana Actions & Blinks + Next.js">Blinks SDK + Next.js</option>
+                    <option value="Metaplex Bubblegum + State Compression">State Compression (cNFTs)</option>
+                    <option value="Light Protocol ZK + WebAssembly">Light Protocol ZK Engine</option>
+                    <option value="SPL Token-2022 Transfer Hooks">Token-2022 Transfer Hooks</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="synth-complexity">Target Scope:</label>
+                  <select id="synth-complexity" class="glass-select">
+                    <option value="Hackathon MVP (1-2 weeks)">Hackathon MVP (1-2 weeks)</option>
+                    <option value="Production Protocol (3-4 weeks)">Production Protocol (3-4 weeks)</option>
+                    <option value="Infrastructure Tooling">Infrastructure Tooling</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="synth-revenue">Revenue Strategy:</label>
+                <select id="synth-revenue" class="glass-select">
+                  <option value="Micro-transaction protocol fee">Micro-transaction protocol fee</option>
+                  <option value="Subscription / API tier">Subscription / API tier</option>
+                  <option value="Yield take rate (Performance Fee)">Yield take rate (Performance Fee)</option>
+                  <option value="Tokenomics & Staking emissions">Tokenomics & Staking emissions</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="synth-prompt-hint">Custom Directives / Special Requirements (Optional):</label>
+                <input type="text" id="synth-prompt-hint" class="glass-input" placeholder="e.g. Include Jupiter swap API integration and Telegram bot interface">
+              </div>
+
+              <button type="button" id="btn-generate-spec" class="btn-primary btn-sparkle">
+                <span class="btn-icon">⚡</span> Synthesize Solana Build Spec
+              </button>
+            </form>
+          </div>
+
+          <!-- Output Spec Display Panel -->
+          <div class="synth-output-panel glass-panel">
+            <div class="output-header">
+              <div class="output-title-group">
+                <h3 class="panel-title">Generated Project Specification</h3>
+                <span class="spec-status-badge" id="spec-status-badge">Ready for Input</span>
+              </div>
+              <div class="output-actions" id="output-actions" style="display: none;">
+                <button class="btn-secondary btn-sm" id="btn-copy-spec">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy Markdown
+                </button>
+                <button class="btn-secondary btn-sm" id="btn-download-spec">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download .md
+                </button>
+              </div>
+            </div>
+
+            <!-- Streaming Terminal Simulation Log -->
+            <div class="terminal-log" id="terminal-log" style="display: none;">
+              <!-- Dynamic terminal lines -->
+            </div>
+
+            <!-- Formatted Output Box -->
+            <div class="spec-display" id="spec-display">
+              <div class="spec-placeholder">
+                <div class="placeholder-icon">🔮</div>
+                <h4>Select parameters and click "Synthesize Solana Build Spec"</h4>
+                <p>SolPulse AI will evaluate current fortnightly on-chain telemetry, github commit activity, and DEX liquidity depth to produce a production-ready architectural spec.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: DATA INSPECTOR / API -->
+      <div class="tab-content" id="tab-api">
+        <div class="api-inspector-layout glass-panel">
+          <div class="api-header">
+            <div class="api-selector-tabs">
+              <button class="api-tab active" data-dataset="narratives">narratives.json (Ecosystem Trends)</button>
+              <button class="api-tab" data-dataset="signals">signals.json (On-Chain Metrics)</button>
+            </div>
+            <div class="api-tools">
+              <input type="text" id="api-search" class="glass-input input-sm" placeholder="Filter JSON properties...">
+              <button class="btn-secondary btn-sm" id="btn-copy-json">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy JSON
+              </button>
+              <button class="btn-secondary btn-sm" id="btn-download-json">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="json-viewer-wrapper">
+            <pre class="json-code-block"><code id="json-display-code">Loading API payload...</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Modal Drawer for Build Ideas -->
+    <div class="modal-overlay" id="idea-modal" tabindex="-1">
+      <div class="modal-card glass-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header">
+          <div class="modal-title-group">
+            <span class="badge-category" id="modal-category">Category</span>
+            <h2 id="modal-title" class="modal-title">Narrative Title</h2>
+            <p id="modal-subtitle" class="modal-subtitle">Subtitle description goes here</p>
+          </div>
+          <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+        </header>
+
+        <div class="modal-body">
+          
+          <!-- Narrative Overview Signals -->
+          <div class="modal-overview-grid">
+            <div class="mini-stat">
+              <span class="mini-label">Momentum Score</span>
+              <span class="mini-val val-purple" id="modal-momentum">96/100</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-label">Fortnight Volume</span>
+              <span class="mini-val" id="modal-volume">$420M</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-label">Growth Rate</span>
+              <span class="mini-val val-green" id="modal-growth">+24.5%</span>
+            </div>
+          </div>
+
+          <div class="modal-section-title">
+            <h3>💡 Curated Build Ideas & Engineering Blueprints (Fortnight 16)</h3>
+            <span class="subtitle-hint">Click any idea to expand full prompt and implementation steps</span>
+          </div>
+
+          <!-- List of Ideas -->
+          <div class="ideas-accordion" id="ideas-accordion">
+            <!-- Ideas rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>SolPulse AI • Solana Ecosystem Narrative & Build Synthesizer • Built for Developers, Hackathons & Founders</p>
+        <div class="footer-links">
+          <span class="status-indicator">● SolPulse Engine v2.4 Live</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- App Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+{
+  "updatedAt": "2026-08-08T02:21:17.278Z",
+  "cyclePeriod": "Fortnight 16 (Aug 2026)",
+  "totalNarratives": 5,
+  "avgMomentumScore": 91.4,
+  "signalSourcesCount": 1495,
+  "sourcesBreakdown": {
+    "githubRepositories": 520,
+    "onchainContracts": 335,
+    "kolPostsAnalyzed": 690
+  },
+  "narrativeScores": [
+    {
+      "narrativeId": "solana-narrative-2026-08-01",
+      "title": "ZK-Compression v2 & Native zkSVM State Scaling for Enterprise Privacy and Hyper-Scale Accounts",
+      "momentumScore": 94,
+      "signals": {
+        "githubVelocity": 94,
+        "onchainSpikes": 95,
+        "kolSentiment": 94
+      },
+      "fortnightlyVolume": "$450M",
+      "changePercent": 34.5,
+      "repoTelemetry": [
+        {
+          "success": true,
+          "owner": "lightprotocol",
+          "repo": "light-protocol",
+          "stars": 340,
+          "forks": 97,
+          "daysSincePush": 4.6,
+          "score": 99
+        },
+        {
+          "success": false,
+          "owner": "helius-labs",
+          "repo": "zk-compression",
+          "stars": 1200,
+          "forks": 350,
+          "daysSincePush": 1.2,
+          "score": 88
+        }
+      ]
+    },
+    {
+      "narrativeId": "solana-narrative-2026-08-02",
+      "title": "Firedancer Mainnet Dominance & Hardware-Accelerated Sub-Millisecond Financial Primitives",
+      "momentumScore": 98,
+      "signals": {
+        "githubVelocity": 99,
+        "onchainSpikes": 98,
+        "kolSentiment": 95
+      },
+      "fortnightlyVolume": "$620M",
+      "changePercent": 28,
+      "repoTelemetry": [
+        {
+          "success": true,
+          "owner": "firedancer-io",
+          "repo": "firedancer",
+          "stars": 1509,
+          "forks": 505,
+          "daysSincePush": 0.1,
+          "score": 99
+        },
+        {
+          "success": true,
+          "owner": "anza-xyz",
+          "repo": "agave",
+          "stars": 1872,
+          "forks": 1148,
+          "daysSincePush": 0.1,
+          "score": 99
+        }
+      ]
+    },
+    {
+      "narrativeId": "solana-narrative-2026-08-03",
+      "title": "DeAgentic Machine Economy: Autonomous AI Agent Swarms & x402 HTTP Micro-Payments",
+      "momentumScore": 91,
+      "signals": {
+        "githubVelocity": 88,
+        "onchainSpikes": 92,
+        "kolSentiment": 96
+      },
+      "fortnightlyVolume": "$380M",
+      "changePercent": 41.2,
+      "repoTelemetry": [
+        {
+          "success": false,
+          "owner": "sendai-build",
+          "repo": "solana-agent-kit",
+          "stars": 1200,
+          "forks": 350,
+          "daysSincePush": 1.2,
+          "score": 88
+        },
+        {
+          "success": false,
+          "owner": "jupiter-ag",
+          "repo": "jupiter-cpmm",
+          "stars": 1200,
+          "forks": 350,
+          "daysSincePush": 1.2,
+          "score": 88
+        }
+      ]
+    },
+    {
+      "narrativeId": "solana-narrative-2026-08-04",
+      "title": "DePIN 2.0: Hardware Enclave (TEE) Telemetry Verification & Seeker Mobile Edge Markets",
+      "momentumScore": 86,
+      "signals": {
+        "githubVelocity": 79,
+        "onchainSpikes": 90,
+        "kolSentiment": 93
+      },
+      "fortnightlyVolume": "$290M",
+      "changePercent": 22,
+      "repoTelemetry": [
+        {
+          "success": false,
+          "owner": "helium",
+          "repo": "solana-program-library",
+          "stars": 1200,
+          "forks": 350,
+          "daysSincePush": 1.2,
+          "score": 88
+        },
+        {
+          "success": true,
+          "owner": "solana-labs",
+          "repo": "solana",
+          "stars": 14942,
+          "forks": 5799,
+          "daysSincePush": 562.3,
+          "score": 70
+        }
+      ]
+    },
+    {
+      "narrativeId": "solana-narrative-2026-08-05",
+      "title": "Institutional RWA 2.0 & Programmatic Dynamic Compliance via Token-2022 Transfer Hooks",
+      "momentumScore": 88,
+      "signals": {
+        "githubVelocity": 81,
+        "onchainSpikes": 93,
+        "kolSentiment": 92
+      },
+      "fortnightlyVolume": "$510M",
+      "changePercent": 19.5,
+      "repoTelemetry": [
+        {
+          "success": true,
+          "owner": "solana-labs",
+          "repo": "solana-program-library",
+          "stars": 4238,
+          "forks": 2398,
+          "daysSincePush": 514.6,
+          "score": 62
+        },
+        {
+          "success": true,
+          "owner": "anza-xyz",
+          "repo": "agave",
+          "stars": 1872,
+          "forks": 1148,
+          "daysSincePush": 0.1,
+          "score": 99
+        }
+      ]
+    }
+  ],
+  "fortnightlyHistory": [
+    {
+      "fortnight": "FN 11",
+      "defai": 52,
+      "depin": 45,
+      "blinks": 30,
+      "zk": 40,
+      "micropay": 20,
+      "lst": 70
+    },
+    {
+      "fortnight": "FN 12",
+      "defai": 65,
+      "depin": 52,
+      "blinks": 48,
+      "zk": 50,
+      "micropay": 35,
+      "lst": 75
+    },
+    {
+      "fortnight": "FN 13",
+      "defai": 78,
+      "depin": 70,
+      "blinks": 80,
+      "zk": 62,
+      "micropay": 60,
+      "lst": 80
+    },
+    {
+      "fortnight": "FN 14",
+      "defai": 110,
+      "depin": 95,
+      "blinks": 115,
+      "zk": 75,
+      "micropay": 98,
+      "lst": 82
+    },
+    {
+      "fortnight": "FN 15",
+      "defai": 145,
+      "depin": 120,
+      "blinks": 130,
+      "zk": 90,
+      "micropay": 140,
+      "lst": 85
+    },
+    {
+      "fortnight": "FN 16",
+      "defai": 182,
+      "depin": 154,
+      "blinks": 160,
+      "zk": 115,
+      "micropay": 195,
+      "lst": 92
+    }
+  ],
+  "topContracts": [
+    {
+      "name": "JUP6LkbZbjS1jKKwapdHNy74zbUWv76D095128",
+      "label": "Jupiter v6 Router",
+      "calls24h": "14.2M",
+      "growth": "+32%"
+    },
+    {
+      "name": "BGUMAp9Gq7iUvuBhXgPyYJu5xHYtmZkq2G",
+      "label": "Metaplex Bubblegum (cNFT)",
+      "calls24h": "8.9M",
+      "growth": "+45%"
+    },
+    {
+      "name": "Light2222222222222222222222222222",
+      "label": "Light Protocol ZK Tree",
+      "calls24h": "6.8M",
+      "growth": "+120%"
+    },
+    {
+      "name": "Jito45wWj2sk9B24559591141381389",
+      "label": "Jito Stake Pool",
+      "calls24h": "5.1M",
+      "growth": "+12%"
+    },
+    {
+      "name": "SQDS42vkw2e57Zqsq7b87N4B28249821",
+      "label": "Squads V4 Smart Accounts",
+      "calls24h": "4.7M",
+      "growth": "+58%"
+    }
+  ],
+  "topKOLSignals": [
+    {
+      "author": "@toly",
+      "role": "Solana Co-Founder",
+      "quote": "Solana state bloat is officially solved. ZK compression gives us stateless execution semantics.",
+      "engagement": "4.8k likes • 940 retweets",
+      "sentiment": 98
+    },
+    {
+      "author": "@mertlmao",
+      "role": "Helius CEO",
+      "quote": "HTTP 402 + Solana micro-transfers means every API on Earth can be monetized with zero credit card fees.",
+      "engagement": "3.5k likes • 710 retweets",
+      "sentiment": 96
+    },
+    {
+      "author": "@akshaybd",
+      "role": "Superteam Advisor",
+      "quote": "Superteam hackathons are seeing 40%+ of all privacy and infrastructure submissions building directly on ZK-Compressed accounts.",
+      "engagement": "2.9k likes • 480 retweets",
+      "sentiment": 95
+    }
+  ]
+}
