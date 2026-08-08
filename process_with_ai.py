@@ -22,12 +22,15 @@ def clean_html(raw_html):
     return re.sub(cleanr, '', raw_html)
 
 def ask_ollama(prompt):
-    """Send a prompt to the local Ollama instance running llama3.2"""
+    """Send a prompt to the local Ollama instance running llama3.1"""
     url = "http://localhost:11434/api/generate"
     payload = {
-        "model": "llama3.2",
+        "model": "llama3.1",
         "prompt": prompt,
-        "stream": False
+        "stream": False,
+        "options": {
+            "temperature": 0.3 # Lower temperature for more analytical, precise reasoning
+        }
     }
     
     req_data = json.dumps(payload).encode("utf-8")
@@ -70,7 +73,7 @@ def process_bounties():
                 print("No open bounties found.")
                 return
                 
-            print(f"Found {len(open_listings)} open bounties. Evaluating with AI...")
+            print(f"Found {len(open_listings)} open bounties. Evaluating with AI (High-Quality Mode)...")
             
             for item in open_listings:
                 slug = item.get("slug")
@@ -87,19 +90,20 @@ def process_bounties():
                 desc = clean_html(details.get("description", ""))
                 
                 prompt = f"""
-You are an expert AI software architect evaluating bounties on a platform.
-We are a team that builds AI agents, data pipelines, and automation tools (Python/Node.js).
+You are a world-class AI software architect and technical lead. We are an elite agency that builds AI agents, data pipelines, and automation tools.
 
-Please read the following bounty description and provide:
-1. A 2-sentence summary of what they actually want built.
-2. A 'Fit Score' out of 10 for an AI automation team.
-3. A brief reason for the score.
+Please deeply analyze the following bounty. Take your time to think step-by-step.
+
+1. DEEP ANALYSIS: What are the hidden technical complexities of this task? What specific frameworks or languages are strictly required?
+2. FIT SCORE: Rate our team's fit from 1-10 (where 10 is a perfect match for an AI/Automation python team). Be ruthlessly honest.
+3. EXECUTION PLAN: If the fit score is 7 or higher, provide a high-level, 3-step technical execution plan to win this bounty.
+4. PROPOSAL DRAFT: Draft a highly professional, compelling 2-paragraph proposal we can submit to win this bounty. 
 
 Bounty Title: {title}
 Description:
-{desc[:3000]} # Truncated to avoid context length issues if it's massive
+{desc[:4000]}
 """
-                print("Asking Llama 3.2...")
+                print("Asking Llama 3.1 (This may take a few minutes for maximum quality...)")
                 evaluation = ask_ollama(prompt)
                 
                 print("\n--- AI EVALUATION ---")
