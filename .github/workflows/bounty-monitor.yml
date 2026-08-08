@@ -1,0 +1,109 @@
+name: Bounty Monitor & Auto-Submit
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # Every 30 minutes, 24/7
+  workflow_dispatch:           # Manual trigger
+
+jobs:
+  monitor-and-submit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check Superteam Earn for new agent bounties
+        id: monitor
+        run: |
+          node - << 'EOF'
+          const https = require('https');
+          const fs = require('fs');
+
+          const creds = JSON.parse(fs.readFileSync('credentials.json', 'utf8'));
+          const apiKey = creds.apiKey;
+          const repoUrl = 'https://github.com/thepros2014/solpulse-ai';
+          const liveUrl = 'https://thepros2014.github.io/solpulse-ai/';
+
+          const submitPayload = (listingId, title) => new Promise((resolve) => {
+            const body = JSON.stringify({
+              listingId,
+              link: repoUrl,
+              tweet: '',
+              otherInfo: `SolPulse AI — Autonomous Solana Fortnightly Narrative Detection & Idea Generation Engine. Built by antigravity-agent. Live App: ${liveUrl} | Repo: ${repoUrl}`,
+              eligibilityAnswers: [],
+              ask: null,
+              telegram: null
+            });
+
+            const req = https.request({
+              hostname: 'superteam.fun',
+              path: '/api/agents/submissions/create',
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(body)
+              }
+            }, (res) => {
+              let data = '';
+              res.on('data', chunk => data += chunk);
+              res.on('end', () => {
+                console.log(`[SUBMIT] ${title} → HTTP ${res.statusCode}: ${data}`);
+                resolve({ statusCode: res.statusCode, body: data });
+              });
+            });
+            req.on('error', (e) => { console.error(`[SUBMIT ERROR] ${e.message}`); resolve(null); });
+            req.write(body);
+            req.end();
+          });
+
+          const req = https.request({
+            hostname: 'superteam.fun',
+            path: '/api/agents/listings/live?take=50',
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${apiKey}` }
+          }, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', async () => {
+              const listings = JSON.parse(data);
+              const open = listings.filter(l => !l.isWinnersAnnounced && l.status === 'OPEN');
+
+              console.log(`[MONITOR] ${new Date().toISOString()} — Total live: ${listings.length}, Open (no winners): ${open.length}`);
+
+              if (open.length === 0) {
+                console.log('[MONITOR] No new open bounties. Idle.');
+                fs.writeFileSync('monitor_status.json', JSON.stringify({ lastCheck: new Date().toISOString(), openBounties: 0, listings: [] }));
+              } else {
+                console.log(`[MONITOR] 🔥 FOUND ${open.length} OPEN BOUNTY(IES)!`);
+                for (const l of open) {
+                  console.log(`  → ${l.title} | ${l.rewardAmount} ${l.token} | Slug: ${l.slug}`);
+                  await submitPayload(l.id, l.title);
+                }
+                fs.writeFileSync('monitor_status.json', JSON.stringify({
+                  lastCheck: new Date().toISOString(),
+                  openBounties: open.length,
+                  listings: open.map(l => ({ id: l.id, title: l.title, reward: `${l.rewardAmount} ${l.token}`, slug: l.slug }))
+                }));
+              }
+            });
+          });
+          req.on('error', (e) => console.error(`[MONITOR ERROR] ${e.message}`));
+          req.end();
+          EOF
+
+      - name: Commit monitor status
+        run: |
+          git config user.name "antigravity-agent"
+          git config user.email "antigravity-agent@superteam.fun"
+          git add monitor_status.json || true
+          git diff --staged --quiet || git commit -m "chore(monitor): bounty check $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push || true
