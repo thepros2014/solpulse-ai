@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-08T03:04:09.787Z",
+  "updatedAt": "2026-08-08T06:54:09.221Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
-  "avgMomentumScore": 87.6,
+  "avgMomentumScore": 87.8,
   "signalSourcesCount": 1495,
   "sourcesBreakdown": {
     "githubRepositories": 520,
@@ -10,24 +10,24 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 3209,
-    "slotHeight": 437912524,
+    "tps": 2770,
+    "slotHeight": 437945228,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
-  "liveCoveragePercent": 19,
+  "liveCoveragePercent": 44,
   "narrativeScores": [
     {
       "narrativeId": "solana-narrative-2026-08-01",
       "title": "ZK-Compression v2 & Native zkSVM State Scaling for Enterprise Privacy and Hyper-Scale Accounts",
-      "momentumScore": 93,
+      "momentumScore": 95,
       "signals": {
-        "githubVelocity": 88,
+        "githubVelocity": 94,
         "onchainSpikes": 98,
         "kolSentiment": 94
       },
       "dataSourceStatus": {
-        "github": "[MOCK]",
+        "github": "[LIVE]",
         "onchain": "[LIVE]",
         "social": "[MOCK]",
         "recentSigCount": 1000
@@ -36,16 +36,16 @@
       "changePercent": 34.5,
       "repoTelemetry": [
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "lightprotocol",
           "repo": "light-protocol",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
+          "stars": 340,
+          "forks": 97,
+          "daysSincePush": 4.8,
           "recentCommits": 0,
-          "score": 88
+          "score": 99
         },
         {
           "liveSource": false,
@@ -64,14 +64,14 @@
     {
       "narrativeId": "solana-narrative-2026-08-02",
       "title": "Firedancer Mainnet Dominance & Hardware-Accelerated Sub-Millisecond Financial Primitives",
-      "momentumScore": 91,
+      "momentumScore": 96,
       "signals": {
-        "githubVelocity": 88,
+        "githubVelocity": 99,
         "onchainSpikes": 92,
         "kolSentiment": 95
       },
       "dataSourceStatus": {
-        "github": "[MOCK]",
+        "github": "[LIVE]",
         "onchain": "[MOCK]",
         "social": "[MOCK]",
         "recentSigCount": 0
@@ -80,28 +80,28 @@
       "changePercent": 28,
       "repoTelemetry": [
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "firedancer-io",
           "repo": "firedancer",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
-          "recentCommits": 0,
-          "score": 88
+          "stars": 1509,
+          "forks": 505,
+          "daysSincePush": 0.3,
+          "recentCommits": 100,
+          "score": 99
         },
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
-          "recentCommits": 0,
-          "score": 88
+          "stars": 1874,
+          "forks": 1150,
+          "daysSincePush": 0.2,
+          "recentCommits": 100,
+          "score": 99
         }
       ]
     },
@@ -152,14 +152,14 @@
     {
       "narrativeId": "solana-narrative-2026-08-04",
       "title": "DePIN 2.0: Hardware Enclave (TEE) Telemetry Verification & Seeker Mobile Edge Markets",
-      "momentumScore": 89,
+      "momentumScore": 85,
       "signals": {
-        "githubVelocity": 88,
+        "githubVelocity": 79,
         "onchainSpikes": 87,
         "kolSentiment": 93
       },
       "dataSourceStatus": {
-        "github": "[MOCK]",
+        "github": "[LIVE]",
         "onchain": "[MOCK]",
         "social": "[MOCK]",
         "recentSigCount": 0
@@ -180,30 +180,30 @@
           "score": 88
         },
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
+          "stars": 14941,
+          "forks": 5801,
+          "daysSincePush": 562.5,
           "recentCommits": 0,
-          "score": 88
+          "score": 70
         }
       ]
     },
     {
       "narrativeId": "solana-narrative-2026-08-05",
       "title": "Institutional RWA 2.0 & Programmatic Dynamic Compliance via Token-2022 Transfer Hooks",
-      "momentumScore": 75,
+      "momentumScore": 73,
       "signals": {
-        "githubVelocity": 88,
+        "githubVelocity": 81,
         "onchainSpikes": 49,
         "kolSentiment": 92
       },
       "dataSourceStatus": {
-        "github": "[MOCK]",
+        "github": "[LIVE]",
         "onchain": "[LIVE]",
         "social": "[MOCK]",
         "recentSigCount": 0
@@ -212,28 +212,28 @@
       "changePercent": 19.5,
       "repoTelemetry": [
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana-program-library",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
+          "stars": 4238,
+          "forks": 2398,
+          "daysSincePush": 514.8,
           "recentCommits": 0,
-          "score": 88
+          "score": 62
         },
         {
-          "liveSource": false,
-          "metaLive": false,
-          "commitLive": false,
+          "liveSource": true,
+          "metaLive": true,
+          "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1200,
-          "forks": 350,
-          "daysSincePush": 1.2,
-          "recentCommits": 0,
-          "score": 88
+          "stars": 1874,
+          "forks": 1150,
+          "daysSincePush": 0.2,
+          "recentCommits": 100,
+          "score": 99
         }
       ]
     }
