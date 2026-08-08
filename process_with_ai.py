@@ -5,9 +5,16 @@ import os
 import datetime
 
 # --- CONFIGURATION ---
-# Submit to EVERYTHING! (Threshold set to 1)
-MINIMUM_FIT_SCORE = 1 
-DEFAULT_PORTFOLIO_LINK = "https://github.com/thepros2014/solpulse-ai"
+MINIMUM_FIT_SCORE = 1
+DEFAULT_PORTFOLIO_LINK = "https://github.com/your-username/your-portfolio"
+
+try:
+    with open("config.json", "r") as f:
+        user_config = json.load(f)
+        MINIMUM_FIT_SCORE = user_config.get("MINIMUM_FIT_SCORE", MINIMUM_FIT_SCORE)
+        DEFAULT_PORTFOLIO_LINK = user_config.get("DEFAULT_PORTFOLIO_LINK", DEFAULT_PORTFOLIO_LINK)
+except FileNotFoundError:
+    print("Warning: config.json not found. Using defaults.")
 
 # Import the submission function from your existing script
 try:
