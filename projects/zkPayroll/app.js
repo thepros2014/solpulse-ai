@@ -5,8 +5,8 @@
 
 // Global State
 const appState = {
-  walletConnected: false,
-  walletAddress: null,
+  walletConnected: true,
+  walletAddress: 'EWwyXqwwoV7pJHywkayAU1t7Wb12CpwswmqiA92jBqYc',
   network: 'devnet',
   simMode: true,
   payrollData: [], // Array of recipient objects
@@ -39,7 +39,7 @@ const appState = {
 
 // Initial Sample Recipients Data
 const sampleRecipients = [
-  { id: '1', address: '7Xg2kP9mQ4vX7n1k9P3mF8wL2vX7n1k9P3mF8wL2v9A', role: 'Engineering', amount: 8500.00, shielded: true, status: 'Ready' },
+  { id: '1', address: 'EWwyXqwwoV7pJHywkayAU1t7Wb12CpwswmqiA92jBqYc', role: 'Engineering Lead', amount: 9500.00, shielded: true, status: 'Ready' },
   { id: '2', address: '3M9fL2vX7n1k9P3mF8wL2vX7n1k9P3mF8wL2v9A8bC', role: 'Engineering', amount: 7800.00, shielded: true, status: 'Ready' },
   { id: '3', address: '9P3mF8wL2vX7n1k9P3mF8wL2vX7n1k9P3mF8wL2v4D', role: 'Design', amount: 6200.00, shielded: true, status: 'Ready' },
   { id: '4', address: '5vX7n1k9P3mF8wL2vX7n1k9P3mF8wL2v9A8bC7Xg2', role: 'Product', amount: 7000.00, shielded: true, status: 'Ready' },
