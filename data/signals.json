@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T12:51:56.014Z",
+  "updatedAt": "2026-08-09T18:41:18.309Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 3218,
-    "slotHeight": 438200650,
+    "tps": 4675,
+    "slotHeight": 438250112,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -43,7 +43,7 @@
           "repo": "light-protocol",
           "stars": 340,
           "forks": 97,
-          "daysSincePush": 6,
+          "daysSincePush": 6.3,
           "recentCommits": 0,
           "score": 99
         },
@@ -85,9 +85,9 @@
           "commitLive": true,
           "owner": "firedancer-io",
           "repo": "firedancer",
-          "stars": 1508,
+          "stars": 1507,
           "forks": 505,
-          "daysSincePush": 0.9,
+          "daysSincePush": 1.2,
           "recentCommits": 100,
           "score": 99
         },
@@ -97,9 +97,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1875,
+          "stars": 1877,
           "forks": 1152,
-          "daysSincePush": 1.4,
+          "daysSincePush": 1.7,
           "recentCommits": 100,
           "score": 99
         }
@@ -185,9 +185,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
-          "stars": 14945,
+          "stars": 14943,
           "forks": 5804,
-          "daysSincePush": 563.7,
+          "daysSincePush": 564,
           "recentCommits": 0,
           "score": 70
         }
@@ -219,7 +219,7 @@
           "repo": "solana-program-library",
           "stars": 4239,
           "forks": 2399,
-          "daysSincePush": 516.1,
+          "daysSincePush": 516.3,
           "recentCommits": 0,
           "score": 62
         },
@@ -229,9 +229,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1875,
+          "stars": 1877,
           "forks": 1152,
-          "daysSincePush": 1.4,
+          "daysSincePush": 1.7,
           "recentCommits": 100,
           "score": 99
         }
