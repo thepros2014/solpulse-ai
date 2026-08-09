@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T01:47:28.940Z",
+  "updatedAt": "2026-08-09T06:57:35.293Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 3110,
-    "slotHeight": 438106023,
+    "tps": 2891,
+    "slotHeight": 438150208,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -43,7 +43,7 @@
           "repo": "light-protocol",
           "stars": 340,
           "forks": 97,
-          "daysSincePush": 5.6,
+          "daysSincePush": 5.8,
           "recentCommits": 0,
           "score": 99
         },
@@ -87,7 +87,7 @@
           "repo": "firedancer",
           "stars": 1509,
           "forks": 505,
-          "daysSincePush": 0.5,
+          "daysSincePush": 0.7,
           "recentCommits": 100,
           "score": 99
         },
@@ -99,7 +99,7 @@
           "repo": "agave",
           "stars": 1875,
           "forks": 1152,
-          "daysSincePush": 1,
+          "daysSincePush": 1.2,
           "recentCommits": 100,
           "score": 99
         }
@@ -185,9 +185,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
-          "stars": 14943,
-          "forks": 5803,
-          "daysSincePush": 563.3,
+          "stars": 14944,
+          "forks": 5804,
+          "daysSincePush": 563.5,
           "recentCommits": 0,
           "score": 70
         }
@@ -218,8 +218,8 @@
           "owner": "solana-labs",
           "repo": "solana-program-library",
           "stars": 4239,
-          "forks": 2398,
-          "daysSincePush": 515.6,
+          "forks": 2399,
+          "daysSincePush": 515.8,
           "recentCommits": 0,
           "score": 62
         },
@@ -231,7 +231,7 @@
           "repo": "agave",
           "stars": 1875,
           "forks": 1152,
-          "daysSincePush": 1,
+          "daysSincePush": 1.2,
           "recentCommits": 100,
           "score": 99
         }
