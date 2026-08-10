@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T18:41:18.309Z",
+  "updatedAt": "2026-08-10T01:51:09.492Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 4675,
-    "slotHeight": 438250112,
+    "tps": 3595,
+    "slotHeight": 438311014,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -42,8 +42,8 @@
           "owner": "lightprotocol",
           "repo": "light-protocol",
           "stars": 340,
-          "forks": 97,
-          "daysSincePush": 6.3,
+          "forks": 98,
+          "daysSincePush": 6.6,
           "recentCommits": 0,
           "score": 99
         },
@@ -85,9 +85,9 @@
           "commitLive": true,
           "owner": "firedancer-io",
           "repo": "firedancer",
-          "stars": 1507,
+          "stars": 1506,
           "forks": 505,
-          "daysSincePush": 1.2,
+          "daysSincePush": 1.5,
           "recentCommits": 100,
           "score": 99
         },
@@ -97,9 +97,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1877,
+          "stars": 1878,
           "forks": 1152,
-          "daysSincePush": 1.7,
+          "daysSincePush": 0.1,
           "recentCommits": 100,
           "score": 99
         }
@@ -187,7 +187,7 @@
           "repo": "solana",
           "stars": 14943,
           "forks": 5804,
-          "daysSincePush": 564,
+          "daysSincePush": 564.3,
           "recentCommits": 0,
           "score": 70
         }
@@ -217,9 +217,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana-program-library",
-          "stars": 4239,
-          "forks": 2399,
-          "daysSincePush": 516.3,
+          "stars": 4240,
+          "forks": 2401,
+          "daysSincePush": 516.6,
           "recentCommits": 0,
           "score": 62
         },
@@ -229,9 +229,9 @@
           "commitLive": true,
           "owner": "anza-xyz",
           "repo": "agave",
-          "stars": 1877,
+          "stars": 1878,
           "forks": 1152,
-          "daysSincePush": 1.7,
+          "daysSincePush": 0.1,
           "recentCommits": 100,
           "score": 99
         }
