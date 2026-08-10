@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-08-10T01:51:09.493Z",
-  "elapsedMs": 2291,
+  "lastRunAt": "2026-08-10T07:42:56.613Z",
+  "elapsedMs": 2128,
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
   "liveCoveragePercent": 44,
@@ -27,8 +27,8 @@
     "solana-narrative-2026-08-04:social",
     "solana-narrative-2026-08-05:social"
   ],
-  "heliusTps": 3595,
+  "heliusTps": 3033,
   "heliusTpsLive": true,
-  "heliusSlotHeight": 438311014,
+  "heliusSlotHeight": 438360846,
   "rpcEndpoint": "https://mainnet.helius-rpc.com/?api-key=demo"
 }
