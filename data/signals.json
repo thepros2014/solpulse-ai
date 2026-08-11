@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T13:07:06.403Z",
+  "updatedAt": "2026-08-11T19:02:58.685Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 3561,
-    "slotHeight": 438611850,
+    "tps": 3850,
+    "slotHeight": 438662482,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -43,7 +43,7 @@
           "repo": "light-protocol",
           "stars": 340,
           "forks": 98,
-          "daysSincePush": 8,
+          "daysSincePush": 8.3,
           "recentCommits": 0,
           "score": 99
         },
@@ -98,7 +98,7 @@
           "owner": "anza-xyz",
           "repo": "agave",
           "stars": 1879,
-          "forks": 1157,
+          "forks": 1158,
           "daysSincePush": 0.1,
           "recentCommits": 100,
           "score": 99
@@ -185,9 +185,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
-          "stars": 14944,
-          "forks": 5807,
-          "daysSincePush": 565.7,
+          "stars": 14945,
+          "forks": 5808,
+          "daysSincePush": 566,
           "recentCommits": 0,
           "score": 70
         }
@@ -217,9 +217,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana-program-library",
-          "stars": 4240,
-          "forks": 2401,
-          "daysSincePush": 518.1,
+          "stars": 4241,
+          "forks": 2402,
+          "daysSincePush": 518.3,
           "recentCommits": 0,
           "score": 62
         },
@@ -230,7 +230,7 @@
           "owner": "anza-xyz",
           "repo": "agave",
           "stars": 1879,
-          "forks": 1157,
+          "forks": 1158,
           "daysSincePush": 0.1,
           "recentCommits": 100,
           "score": 99
