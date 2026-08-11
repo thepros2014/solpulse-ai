@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T07:08:52.186Z",
+  "updatedAt": "2026-08-11T13:07:06.403Z",
   "cyclePeriod": "Fortnight 16 (Aug 2026)",
   "totalNarratives": 5,
   "avgMomentumScore": 87.8,
@@ -10,8 +10,8 @@
     "kolPostsAnalyzed": 690
   },
   "heliusNetworkStats": {
-    "tps": 3276,
-    "slotHeight": 438560781,
+    "tps": 3561,
+    "slotHeight": 438611850,
     "sampleCount": 10,
     "dataTag": "[LIVE]"
   },
@@ -43,7 +43,7 @@
           "repo": "light-protocol",
           "stars": 340,
           "forks": 98,
-          "daysSincePush": 7.8,
+          "daysSincePush": 8,
           "recentCommits": 0,
           "score": 99
         },
@@ -85,9 +85,9 @@
           "commitLive": true,
           "owner": "firedancer-io",
           "repo": "firedancer",
-          "stars": 1506,
+          "stars": 1507,
           "forks": 505,
-          "daysSincePush": 0.2,
+          "daysSincePush": 0.1,
           "recentCommits": 100,
           "score": 99
         },
@@ -185,9 +185,9 @@
           "commitLive": true,
           "owner": "solana-labs",
           "repo": "solana",
-          "stars": 14943,
-          "forks": 5808,
-          "daysSincePush": 565.5,
+          "stars": 14944,
+          "forks": 5807,
+          "daysSincePush": 565.7,
           "recentCommits": 0,
           "score": 70
         }
@@ -219,7 +219,7 @@
           "repo": "solana-program-library",
           "stars": 4240,
           "forks": 2401,
-          "daysSincePush": 517.8,
+          "daysSincePush": 518.1,
           "recentCommits": 0,
           "score": 62
         },
